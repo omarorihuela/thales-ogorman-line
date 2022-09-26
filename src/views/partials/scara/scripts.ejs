@@ -1,0 +1,666 @@
+<script>
+    /*  
+        ** This script catch the data sended from the server when the page is loaded
+        and initialize the state of each button and each field. **
+
+    */
+    var scaraObject = <%- dataScara %>; // dataScara: variable sent with the render of the window.
+    console.log(scaraObject);
+    
+    let operationMode;
+    //console.log(localStorage);
+
+    if (scaraObject.id == 'scaraIJ01') {
+        $('#Robot').text('Scara-013');
+        $('.machineBefore').text('ICI-034');
+        $('.machineAfter').text('Jinguan-009');
+
+        if (localStorage.scaraIJ01 == undefined) {
+            operationMode =  {
+                scaraIJ01: {
+                    stateICI: '1',
+                    stateBuffer: '1',
+                    stateJinguan: '1'
+                }
+            }
+
+        } else {
+            console.log(localStorage.scaraIJ01);
+            operationMode = {
+                scaraIJ01: JSON.parse(localStorage.scaraIJ01)
+            }         
+        }
+
+    }else if (scaraObject.id == 'scaraIJ02') {
+        $('#Robot').text('Scara-015');
+        $('.machineBefore').text('ICI-032');
+        $('.machineAfter').text('Jinguan-004');
+
+        if (localStorage.scaraIJ02 == undefined) {
+            operationMode =  {
+                scaraIJ02: {
+                    stateICI: '1',
+                    stateBuffer: '1',
+                    stateJinguan: '1'
+                }
+            }
+
+        } else {
+            console.log(localStorage.scaraIJ02);
+            operationMode = {
+                scaraIJ02: JSON.parse(localStorage.scaraIJ02)
+            }         
+        }
+    }else if (scaraObject.id == 'scaraJM01') {
+        $('#Robot').text('Scara-014');
+        $('.machineBefore').text('Jinguan-009');
+        $('.machineAfter').text('MPR-011');
+
+        if (localStorage.scaraJM01 == undefined) {
+            operationMode =  {
+                scaraJM01: {
+                    stateJinguan: '1',
+                    stateBuffer: '1',
+                    stateMPR: '1'
+                }
+            }
+
+        } else {
+            console.log(localStorage.scaraJM01);
+            operationMode = {
+                scaraJM01: JSON.parse(localStorage.scaraJM01)
+            }         
+        }
+    } else if (scaraObject.id == 'scaraJM02') {
+        $('#Robot').text('Scara-016');
+        $('.machineBefore').text('Jinguan-004');
+        $('.machineAfter').text('MPR-329');
+
+        if (localStorage.scaraJM02 == undefined) {
+            operationMode =  {
+                scaraJM02: {
+                    stateJinguan: '1',
+                    stateBuffer: '1',
+                    stateMPR: '1'
+                }
+            }
+
+        } else {
+            console.log(localStorage.scaraJM02);
+            operationMode = {
+                scaraJM02: JSON.parse(localStorage.scaraJM02)
+            }         
+        }
+    }
+
+    console.log(operationMode);
+    $.ajax({
+        url: `/clientConnected/${scaraObject.id}`,
+        type: 'POST',
+        data: operationMode[`${scaraObject.id}`],
+        success: function(){
+
+            /* Initialice the operationMode´s switches ----------------> */
+                if (scaraObject.machineBefore == 'ICI') {
+                    operationMode[`${scaraObject.id}`]['stateICI'] == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`]['stateBuffer'] == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[`${scaraObject.id}`]['stateJinguan'] == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                } else if (scaraObject.machineBefore == 'Jinguan') {
+                    operationMode[`${scaraObject.id}`]['stateJinguan'] == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`]['stateBuffer'] == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[`${scaraObject.id}`]['stateMPR'] == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                }
+            /* <-------------------------------------------------------- */
+        }
+    })
+
+    /* Set the text on #machineBefore and #machineAfter fields -> */
+    /* <-------------------------------------------------------- */
+
+   /* Initialice the value of setPointCards and delayRoboUp inputs -> */
+        $('#inputSetPointCards').val(parseInt(scaraObject.control.general.setPointCards));
+        $('#inputDelayRobotUp').val(parseInt(scaraObject.control.general.delayRobotUp));
+    /* <-------------------------------------------------------- */ 
+
+    if (scaraObject.statusModbusPLC){
+
+        connectionWithPLCEstablished();
+
+        /* Initialice the operationMode´s switches ----------------> */
+            if (scaraObject.machineBefore == 'ICI') {
+                scaraObject.control.process.stateICI == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                scaraObject.control.process.stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                scaraObject.control.process.stateJinguan == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+            } else if (scaraObject.machineBefore == 'Jinguan') {
+                scaraObject.control.process.stateJinguan == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                scaraObject.control.process.stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                scaraObject.control.process.stateMPR == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+            }
+        /* <-------------------------------------------------------- */
+
+        /* Initialice the state of the openGripper button ---------> */
+            if (scaraObject.control.process.openGripper == '1') {
+                $('#btnOpenGripper').attr('value', 'Reset');
+                $('#btnOpenGripper').removeClass('btn-success');
+                $('#btnOpenGripper').addClass('btn-primary');
+            }
+        /* <-------------------------------------------------------- */
+
+    } else {    // Disable al the buttons if there is no connection with the PLC.
+
+        connectionWithPLCLost();
+    }
+
+    /* Validate the input data on the input number boxes -------> */
+        $('#inputSetPointCards').on('change', () => {
+            if ( parseInt($('#inputSetPointCards').val()) > 39 && parseInt($('#inputSetPointCards').val()) < 61) {
+                null;
+            } else {         
+                $('#inputSetPointCards').val(50);
+            }
+        })
+
+        $('#inputDelayRobotUp').on('change', () => {
+            if ( parseInt($('#inputDelayRobotUp').val()) > 0 && parseInt($('#inputDelayRobotUp').val()) < 16) {
+                null;
+            } else {
+                $('#inputDelayRobotUp').val(10);
+                    
+            }
+        })
+    /* <-------------------------------------------------------- */
+
+    /* Keep active each element of the nav bar ----------------> */
+        if (scaraObject.id == 'scaraIJ01'){
+            $('#navIJ01').addClass('navActive');
+            $('#navCobotUR10').removeClass('navActive');
+            $('#navIJ02').removeClass('navActive');
+            $('#navJM01').removeClass('navActive');
+            $('#navJM02').removeClass('navActive');
+        } else if (scaraObject.id == 'scaraIJ02'){
+            $('#navIJ02').addClass('navActive');
+            $('#navCobotUR10').removeClass('navActive');
+            $('#navICI01').removeClass('navActive');
+            $('#navJM01').removeClass('navActive');
+            $('#navJM02').removeClass('navActive');
+        } else if (scaraObject.id == 'scaraJM01'){
+            $('#navJM01').addClass('navActive');
+            $('#navCobotUR10').removeClass('navActive');
+            $('#navICI01').removeClass('navActive');
+            $('#navIJ02').removeClass('navActive');
+            $('#navJM02').removeClass('navActive');
+        } else if (scaraObject.id == 'scaraJM02'){
+            $('#navJM02').addClass('navActive');
+            $('#navCobotUR10').removeClass('navActive');
+            $('#navICI01').removeClass('navActive');
+            $('#navIJ02').removeClass('navActive');
+            $('#navJM01').removeClass('navActive');
+        }
+    /* <-------------------------------------------------------- */
+
+    function connectionWithPLCLost (){
+        
+        /* Set the color of the Modbus PLC icon -------------------> */
+            $('.iconPLC').addClass('bg-danger');
+            $('.iconPLC').removeClass('bg-success');
+        /* <-------------------------------------------------------- */
+
+        /* Diasble the resetLotCardsCounters button ---------------> */ 
+            $('#btnResetLotCardsCounters').prop('disabled', true);
+            $("#btnResetLotCardsCounters").css('cursor','context-menu');
+            $('#btnResetLotCardsCounters').removeClass('btn-warning');
+            $('#btnResetLotCardsCounters').addClass('btn-secondary');
+        /* <-------------------------------------------------------- */
+
+        /* Disable all the buttons inside the nav-tabContent div --> */
+            $("#nav-tabContent *").children().prop('disabled',true);
+            $("#nav-tabContent *").css('cursor','context-menu');
+            $("#nav-tabContent").find(':input').removeClass('btn-success');
+            $("#nav-tabContent").find(':input').addClass('btn-secondary');
+        /* <-------------------------------------------------------- */
+    }
+
+    function connectionWithPLCEstablished() {
+        /* Set the color of the Modbus PLC icon -------------------> */
+            $('.iconPLC').addClass('bg-success');
+            $('.iconPLC').removeClass('bg-danger');
+        /* <-------------------------------------------------------- */
+
+        /* Enable the resetLotCardsCounters button ----------------> */ 
+            $('#btnResetLotCardsCounters').prop('disabled', false);
+            $("#btnResetLotCardsCounters").css('cursor','pointer');
+            $('#btnResetLotCardsCounters').removeClass('btn-secondary');
+            $('#btnResetLotCardsCounters').addClass('btn-warning');
+        /* <-------------------------------------------------------- */
+        
+        /* Enable all the elements inside the nav-tabContent ------> */
+            $("#nav-tabContent *").children().prop('disabled',false);
+            $("#nav-tabContent").find(':input').removeClass('btn-secondary');
+            $("#nav-tabContent").find(':submit').removeClass('btn-secondary');
+            $("#nav-tabContent").find(':submit').css('cursor','pointer');  
+            $("#nav-tabContent").find(':input[type=button]').css('cursor','pointer');  
+            $("#nav-tabContent").find(':input[value=Aceptar]').addClass('btn-success');
+            $("#nav-tabContent").find(':submit').addClass('btn-success');
+        /* <-------------------------------------------------------- */
+
+        /* Initialice the state of the takeCards button -----------> */ 
+            if ( (scaraObject.machineBefore == 'ICI' && scaraObject.control.process.stateICI == '1') || 
+            (scaraObject.machineBefore == 'Jinguan' && scaraObject.control.process.stateJinguan == '1')) {
+                $('#btnTakeCards').prop('disabled', false);
+                $('#btnTakeCards').css('cursor', 'pointer');
+                $('#btnTakeCards').removeClass('btn-secondary');
+                $('#btnTakeCards').addClass('btn-success');                            
+            } else {
+                $('#btnTakeCards').prop('disabled', true);
+                $('#btnTakeCards').css('cursor', 'context-menu');
+                $('#btnTakeCards').addClass('btn-secondary');
+                $('#btnTakeCards').removeClass('btn-success');
+            }        
+        /* <-------------------------------------------------------- */
+    }
+</script>
+
+<script>
+    /* ......................................
+        ** This script manage all the tasks
+        on the 'Produccion' section** 
+    .........................................*/
+
+    setInterval(() => {
+        $.get(`/${scaraObject.id}/Production/getData`, (data) => {
+            if (data  == 'ClientDisconnected') {
+                window.location.reload();
+            } else{
+                scaraObject = data;
+            }
+            // console.log(scaraObject);
+        });
+
+        $('#statusRobot').text(scaraObject.production.status.robot);
+        if (!scaraObject.statusModbusPLC) {
+            $('#statusSafety').text('Sin conexión con el PLC');
+            $('#statusMachineBefore').text('Sin conexión con el PLC');
+            $('#statusMachineAfter').text('Sin conexión con el PLC');
+            connectionWithPLCLost();
+        } else {
+            connectionWithPLCEstablished();
+            if (scaraObject.production.status.safety) {
+                $('#statusSafety').removeClass('text-danger');
+                $('#statusSafety').addClass('text-success');
+                $('#statusSafety').text('Seguridad OK');
+            } else {
+                $('#statusSafety').removeClass('text-success');                
+                $('#statusSafety').addClass('text-danger');
+                $('#statusSafety').text('Paro de emergencia activado');
+            }
+
+            if (scaraObject.machineBefore == 'ICI'){
+                if (scaraObject.production.status.ICI) {
+                    $('#statusMachineBefore').removeClass('text-danger');
+                    $('#statusMachineBefore').addClass('text-success');
+                    $('#statusMachineBefore').text('Trabajando');
+                } else {
+                    $('#statusMachineBefore').removeClass('text-success');
+                    $('#statusMachineBefore').addClass('text-danger');
+                    $('#statusMachineBefore').text('Detenida');
+                }
+                if (scaraObject.production.status.Jinguan) {
+                    $('#statusMachineAfter').removeClass('text-danger');
+                    $('#statusMachineAfter').addClass('text-success');
+                    $('#statusMachineAfter').text('Trabajando');
+                } else {
+                    $('#statusMachineAfter').removeClass('text-success');
+                    $('#statusMachineAfter').addClass('text-danger');
+                    $('#statusMachineAfter').text('Detenida');
+                }
+                $('#cardsTaken').text(scaraObject.production.cardsCounters.takenFromICI);
+                $('#cardsDropped').text(scaraObject.production.cardsCounters.droppedOnJinguan);
+            } else if (scaraObject.machineBefore == 'Jinguan'){
+                if (scaraObject.production.status.Jinguan) {
+                    $('#statusMachineBefore').removeClass('text-danger');
+                    $('#statusMachineBefore').addClass('text-success');
+                    $('#statusMachineBefore').text('Trabajando');
+                } else {
+                    $('#statusMachineBefore').removeClass('text-success');
+                    $('#statusMachineBefore').addClass('text-danger');
+                    $('#statusMachineBefore').text('Detenida');
+                }
+                if (scaraObject.production.status.MPR) {
+                    $('#statusMachineAfter').removeClass('text-danger');
+                    $('#statusMachineAfter').addClass('text-success');
+                    $('#statusMachineAfter').text('Trabajando');
+                } else {
+                    $('#statusMachineAfter').removeClass('text-success');
+                    $('#statusMachineAfter').addClass('text-danger');
+                    $('#statusMachineAfter').text('Detenida');
+                }
+                $('#cardsTaken').text(scaraObject.production.cardsCounters.takenFromJinguan);
+                $('#cardsDropped').text(scaraObject.production.cardsCounters.droppedOnMPR);            
+            }
+
+            $('#cardsContainer').text(scaraObject.production.cardsCounters.cardsContainer);
+            $('#cardsRejected').text(scaraObject.production.cardsCounters.cardsRejected);
+            $('#drawersOccuped').text(scaraObject.production.bufferScara.drawersOccuped);
+            
+            //Set the value of Cards in Buffer
+            scaraObject.production.bufferScara.bufferCards = scaraObject.production.bufferScara.drawersOccuped * scaraObject.control.general.setPointCards;
+            $('#cardsInBuffer').text(scaraObject.production.bufferScara.bufferCards);
+        }
+        
+        //Execute the monitoring Fucntion
+        monitoringFunction();
+
+    }, 200);
+
+
+    /*  This button resets the counter of taken cards
+        from Metronic and  the dropped cards on each 
+        robot (ICI01 and IJ02)   -------------------->*/
+        $('#btnResetLotCardsCounters').on('click', () => {
+            console.log(scaraObject.id);
+            $.ajax({
+                url: `/resetLotCardsCounters`,
+                type: 'POST',
+                data: {
+                    resetLotCardsCounters: true    // 1 -> True 
+                },
+                success: function () {
+                    toastr.warning('Contadores Reiniciados');
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+
+    /* Button to reset the Buffer -------------------->  */
+        $('#btnResetBuffer').on('click', () => {
+            $.ajax({
+                url: `/${scaraObject.id}/Production/resetBuffer`,
+                type: 'POST',
+                data: {
+                    resetBuffer: 1      // 1 -> True
+                },
+                success: function () {
+                    toastr.success('Datos enviados correctamente');
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+</script>
+
+<script>
+    /* ......................................
+        ** This script manage all the tasks
+        on the 'Control' section** 
+    .........................................*/
+
+    /* Form to set the value of 'Toma de Tarjetas' ----> */
+        $('#formSetPointCards').submit((e) => {
+            e.preventDefault();
+            let setPointCards = $('#inputSetPointCards').val()
+
+            if ( parseInt($('#inputSetPointCards').val()) > 39 && parseInt($('#inputSetPointCards').val()) < 61) {
+                console.log(parseInt($('#inputSetPointCards').val()));   
+                $.ajax({
+                    url: `/${scaraObject.id}/Control/setPointCards`,
+                    type: 'POST',
+                    data: {
+                        setPointCards: setPointCards    //setPointCards = Number
+                    },
+                    success: function () {
+                        toastr.success('Datos enviados correctamente');
+                    }
+                })                
+            } else {         
+                $('#inputSetPointCards').val(50);
+            }
+        })
+    /* <------------------------------------------------ */
+
+    /* Form to set the value of 'delayRobotUP' -----> */
+        $('#formDelayRobotUp').submit((e) => {
+            e.preventDefault();
+            let delayRobotUp = $('#inputDelayRobotUp').val()
+
+            $.ajax({
+                url: `/${scaraObject.id}/Control/delayRobotUp`,
+                type: 'POST',
+                data: {
+                    delayRobotUp: delayRobotUp
+                },
+                success: function () {
+                    toastr.success('Datos enviados correctamente');
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+
+    /* Form to set the operationMode ------------------> */
+        $('#formOperationMode').submit((e) => {
+            e.preventDefault();
+            let stateICI = 0;
+            let stateBuffer = 0;
+            let stateJinguan = 0;
+            let stateMPR = 0;
+            if (scaraObject.machineBefore == 'ICI'){
+                if ($('#checkboxMachineBefore').prop('checked') == true) {
+                    stateICI = 1;    // 1 -> True
+                } else if ($('#checkboxMachineBefore').prop('checked') == false) {
+                    stateICI = 0;    // 0 -> False
+                }
+
+                if ($('#checkboxMachineAfter').prop('checked') == true) {
+                    stateJinguan = 1;    // 1 -> True
+                } else if ($('#checkboxMachineAfter').prop('checked') == false) {
+                    stateJinguan = 0;    // 0 -> False
+                }
+            } else if (scaraObject.machineBefore == 'Jinguan'){
+                if ($('#checkboxMachineBefore').prop('checked') == true) {
+                    stateJinguan = 1;    // 1 -> True
+                } else if ($('#checkboxMachineBefore').prop('checked') == false) {
+                    stateJinguan = 0;    // 0 -> False
+                }
+
+                if ($('#checkboxMachineAfter').prop('checked') == true) {
+                    stateMPR = 1;    // 1 -> True
+                } else if ($('#checkboxMachineAfter').prop('checked') == false) {
+                    stateMPR = 0;    // 0 -> False
+                }
+            }
+
+            if ($('#checkboxBuffer').prop('checked') == true) {
+                stateBuffer = 1;    // 1 -> True
+            } else if ($('#checkboxBuffer').prop('checked') == false) {
+                stateBuffer = 0;    // 0 -> False
+            }
+
+            $.ajax({
+                url: `/${scaraObject.id}/Control/operationMode`,
+                type: 'POST',
+                data: {
+                    stateICI: stateICI,
+                    stateBuffer: stateBuffer,
+                    stateJinguan: stateJinguan,
+                    stateMPR: stateMPR
+                },
+                success: function () {
+                    toastr.success('Datos enviados correctamente');
+
+                    let operationMode = {
+                        stateICI: stateICI,
+                        stateBuffer: stateBuffer,
+                        stateJinguan: stateJinguan,
+                        stateMPR: stateMPR
+                    }
+
+                    if (scaraObject.id == 'scaraIJ01') {
+                        localStorage.scaraIJ01 = JSON.stringify(operationMode);
+                    } else if (scaraObject.id == 'scaraIJ02') {
+                        localStorage.scaraIJ02 = JSON.stringify(operationMode);
+                    } else if (scaraObject.id == 'scaraJM01') {
+                        localStorage.scaraJM01 = JSON.stringify(operationMode);
+                    } else if (scaraObject.id == 'scaraJM02') {
+                        localStorage.scaraJM02 = JSON.stringify(operationMode);
+                    } 
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+
+
+    /* Button to force the robot to takeCards ---------> */
+    $('#btnTakeCards').on('click', () => {
+        $.ajax({
+            url: `/${scaraObject.id}/Control/takeCards`,
+            type: 'POST',
+            data: {
+                takeCards: 1
+            },
+            success: function() {
+                toastr.success('Datos enviados correctamente');
+            }
+        })
+    })
+    /* <------------------------------------------------ */
+
+    /* Button to force the robot to open the Gripper --> */
+        $('#btnOpenGripper').on('click', () => {
+            let openGripper;
+            if ($('#btnOpenGripper').hasClass('btn-success')) {openGripper = 1}
+            if ($('#btnOpenGripper').hasClass('btn-primary')) {openGripper = 0}
+            $.ajax({
+                url: `/${scaraObject.id}/Control/openGripper`,
+                type: 'POST',
+                data: {
+                    openGripper: openGripper
+                },
+                success: function() {
+                    toastr.success('Datos enviados correctamente');
+                    $('#btnOpenGripper').toggleClass('btn-success');
+                    $('#btnOpenGripper').toggleClass('btn-primary');
+                    if ($('#btnOpenGripper').hasClass('btn-success'))
+                        $('#btnOpenGripper').attr('value', 'Aceptar');
+                    if ($('#btnOpenGripper').hasClass('btn-primary'))
+                        $('#btnOpenGripper').attr('value', 'Reset');
+                    
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+
+    /* Button to set the generalReset -----------------> */
+        $('#btnGeneralReset').on('click', () => {
+            $.ajax({
+                url: `/${scaraObject.id}/Control/generalReset`,
+                type: 'POST',
+                data: {
+                    generalReset: 1
+                },
+                success: function() {
+                    toastr.success('Datos enviados correctamente');
+                }
+            })
+        })
+    /* <------------------------------------------------ */
+</script>
+
+<script>
+        /* ......................................
+            ** This script controls the
+            'Monitoreo' section** 
+        .........................................*/
+    function monitoringFunction () {
+        if (scaraObject.id == 'scaraIJ01' || scaraObject.id == 'scaraIJ02') {
+            var _inputs = [
+                'I0_00',
+                'I0_01',
+                'I0_02',
+                'I0_03',
+                'I0_04',
+                'I0_05',
+                'I0_06',
+                'I0_07',
+                'I0_08',
+                'I0_09',
+                'I0_10',
+                'I0_11',
+                'I0_12',
+                'I0_13',
+                'I0_14',
+                'I0_15',
+                'I0_16'
+            ];
+        } else if(scaraObject.id == 'scaraJM01' || scaraObject.id == 'scaraJM02'){
+            var _inputs = [
+                'I0_00',
+                'I0_01',
+                'I0_02',
+                'I0_03',
+                'I0_04',
+                'I0_05',
+                'I0_06',
+                'I0_07',
+                'I0_08',
+                'I0_09',
+                'I0_10',
+                'I0_11',
+                'I0_12',
+                'I0_13',
+                'I0_14',
+                'I0_15',
+                'I0_16',
+                'I0_17',
+                'I0_18',
+                'I0_19'
+            ];
+        }
+        var _outputs = [
+            'O1_00',
+            'O1_01',
+            'O1_02',
+            'O1_03',
+            'O1_04',
+            'O1_05',
+            'O1_06',
+            'O1_07',
+            'O1_08',
+            'O1_09',
+            'O1_10',
+            'O1_11',
+            'O2_OO',
+            'O2_01'
+        ]
+
+        if (scaraObject.id == 'scaraIJ01' || scaraObject.id == 'scaraIJ02') {
+            for (let i = 0 ; i < 17; i++) {
+                inputSignals(_inputs[i]);
+            }
+        } else if(scaraObject.id == 'scaraJM01' || scaraObject.id == 'scaraJM02'){
+            for (let i = 0 ; i < 20; i++) {
+                inputSignals(_inputs[i]);
+            }
+        }
+
+        for (let i = 0 ; i < 14; i++) {
+            outputSignals(_outputs[i]);
+        }
+    }
+
+    function inputSignals(id) {
+        if (scaraObject.monitoring.inputs[`${id}`] == true) {
+            $(`#${id}`).removeClass('text-secondary');
+            $(`#${id}`).addClass('text-success');
+        } else {
+            $(`#${id}`).removeClass('text-success');
+            $(`#${id}`).addClass('text-secondary');
+        }
+    }
+    function outputSignals(id) {
+        if (scaraObject.monitoring.outputs[`${id}`] == true){
+            $(`#${id}`).removeClass('text-secondary');
+            $(`#${id}`).addClass('text-success');
+        } else {
+            $(`#${id}`).removeClass('text-success');
+            $(`#${id}`).addClass('text-secondary');
+        }
+    }
+</script>

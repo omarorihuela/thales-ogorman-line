@@ -1,0 +1,273 @@
+
+            <div class="tab-content" id="nav-tabContent">
+                <!--  ::::: PRODUCTION SECTION ::::::: -->
+                <div class="tab-pane fade show active" id="nav-production" role="tabpanel"
+                    aria-labelledby="nav-production-tab">
+                    <div class="card border-0" style="border-radius: 0 0.25rem 0.25rem 0.25rem;">
+                        <div class="card-body">
+                            <!--  ::::: STATUS ROBOT ::::: -->
+                            <div class="card border border-dark mb-3">
+                                <div class="row no-gutters">
+                                    <div class="card-header col-4 bg-dark text-light d-flex justify-content-center align-items-center"
+                                        style="border-radius: 0.25rem 0 0 0.25rem;">
+                                        Estatus del sistema
+                                    </div>
+                                    <div class="col-8 px-3">
+                                        <div class="row mx-auto py-2 border-bottom">
+                                            <div class="col-6">
+                                                <span id="Robot">Robot:</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <div id="statusRobot" class="text-success font-weight-bold text-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mx-auto py-2 border-bottom">
+                                            <div class="col-6">
+                                                Seguridad:
+                                            </div>
+                                            <div class="col-6">
+                                                <div id="statusSafety" class="text-danger font-weight-bold text-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mx-auto py-2 border-bottom">
+                                            <div class="col-6">
+                                                <span class="machineBefore"></span>:
+                                            </div>
+                                            <div class="col-6">
+                                                <div id="statusMachineBefore" class="text-danger font-weight-bold text-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mx-auto py-2 border-bottom">
+                                            <div class="col-6">
+                                                <span class="machineAfter"></span>:
+                                            </div>
+                                            <div class="col-6">
+                                                <div id="statusMachineAfter" class="text-danger font-weight-bold text-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  ::::: END OF STATUS ROBOT ::::: -->
+
+                            <!--  ::::: COUNTER CARDS ::::: -->
+                            <div class="card mb-3 border border-dark">
+                                <div class="row no-gutters">
+                                    <div class="col-4 px-3 card-header bg-dark text-light d-flex flex-column align-items-center"
+                                        style="border-radius: 0.25rem 0 0 0.25rem;">
+                                        <div class="h-100 d-flex align-items-center">
+                                            Conteo de tarjetas
+                                        </div>
+                                    </div>
+                                    <div class="col-8 px-3">
+                                        <div class="row py-2 mx-auto border-bottom">
+                                            <div class="col-8">
+                                                Salida <span class="machineBefore"></span>:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="cardsTaken" class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row py-2 mx-auto border-bottom">
+                                            <div class="col-8">
+                                                Entrada <span class="machineAfter"></span>:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="cardsDropped" class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row py-2 mx-auto border-bottom">
+                                            <div class="col-8">
+                                                Tarjetas en charola:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="cardsContainer"class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row py-2 mx-auto">
+                                            <div class="col-8">
+                                                Tarjetas rechazadas:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="cardsRejected" class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  ::::: END OF COUNTER CARDS ::::: -->
+
+                            <!--  ::::: SCARA BUFFER ::::: -->
+                            <div class="card border border-dark">
+                                <div class="row no-gutters">
+                                    <div class="col-4 card-header px-3 bg-dark text-light d-flex flex-column justify-content-center align-items-center"
+                                        style="border-radius: 0.25rem 0 0 0.25rem;">
+                                        <div class="mb-2">
+                                            Buffer de SCARA
+                                        </div>
+                                        <input type="button" id="btnResetBuffer" class="btn btn-sm btn-primary d-block w-100" value="Reset Buffer">
+                                    </div>
+                                    <div class="col-8 px-3">
+                                        <div class="row py-2 mx-auto border-bottom">
+                                            <div class="col-8">
+                                                Tarjetas en buffer:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="cardsInBuffer" class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row py-2 mx-auto">
+                                            <div class="col-8">
+                                                Cajones ocupados:
+                                            </div>
+                                            <div
+                                                class="col-4 d-flex justify-content-center align-items-center font-weight-bold">
+                                                <div id="drawersOccuped" class="text-primary">
+                                                    --
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  ::::: END OFSCARA BUFFER ::::: -->
+
+                        </div>
+                    </div>
+                </div>
+                <!--  ::::: END OF PRODUCTION SECTION ::::::: -->
+
+                <!--  ::::: CONTROL SECTION ::::::: -->
+                <div class="tab-pane fade" id="nav-control" role="tabpanel" aria-labelledby="nav-control-tab">
+                    <div class="card border-0 rounded">
+                        <div class="card-body p-3">
+
+                            <!--  ::::: GENERAL SETTINGS ::::::: -->
+                            <div class="card mb-3 border border-dark">
+                                <div class="card-header bg-dark text-light">
+                                    Ajustes Generales
+                                </div>
+                                <div class="card-body p-2">
+                                    <div class="row w-100 mb-2 pb-2 d-flex align-items-center mx-auto border-bottom">
+                                        <div class="col-6">
+                                            Toma de Tarjetas
+                                        </div>
+                                        <form id="formSetPointCards" class="col-6 form-inline">
+                                            <div class="col-6 d-flex justify-content-center">
+                                                <input id="inputSetPointCards" class="text-center" type="number"
+                                                    min="40" max="60" value="50" style="width: 80%;">
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-center">
+                                                <input type="submit" class="btn btn-success btn-sm" value="Aceptar">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row w-100 d-flex align-items-center mx-auto">
+                                        <div class="col-6">
+                                            Retardo sube robot (segundos)
+                                        </div>
+                                        <form action="" id="formDelayRobotUp" class="col-6 form-inline">
+                                            <div class="col-6 d-flex justify-content-center">
+                                                <input id="inputDelayRobotUp" class="text-center" type="number"
+                                                    min="1" max="10" value="5" style="width: 80%;">
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-center">
+                                                <input type="submit" class="btn btn-success btn-sm" value="Aceptar">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  ::::: END OF GENERAL SETTINGS ::::::: -->
+
+                            <!--  ::::: PROCESS CONTROL ::::::: -->
+                            <div class="card border border-dark">
+                                <div class="row no-gutters">
+                                    <div class="col-4 card-header bg-dark text-light d-flex justify-content-center align-items-center"
+                                        style="border-radius: 0.25rem 0 0 0.25rem;">
+                                        Control de Proceso
+                                    </div>
+                                    <div class="col-8 px-3 py-2">
+                                        <div class="row py-2 mx-auto">
+                                            Selecciona el modo de operación:
+                                        </div>
+                                        <div class="row px-3 py-2 mx-auto border-bottom">
+                                            <form action="" id="formOperationMode" class="row w-100 mx-auto">
+                                                <div class="col-4 custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="checkboxMachineBefore">
+                                                    <label class="machineBefore custom-control-label"
+                                                        for="checkboxMachineBefore"></label>
+                                                </div>
+                                                <div class="col-4 custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="checkboxBuffer">
+                                                    <label class="custom-control-label"
+                                                        for="checkboxBuffer">Buffer</label>
+                                                </div>
+                                                <div class="col-4 custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="checkboxMachineAfter">
+                                                    <label class="machineAfter custom-control-label"
+                                                        for="checkboxMachineAfter"></label>
+                                                </div>
+                                                <div class="col-10 mx-auto mt-3">
+                                                    <button type="submit"
+                                                        class="btn btn-success btn-sm d-block w-100">Aceptar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row py-2 mx-auto border-bottom d-flex align-items-center">
+                                            <div class="col-7">
+                                                Forzar toma de tarjetas
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <input type="button" id="btnTakeCards" name="tomarCards" class="btn btn-success btn-sm" value="Aceptar">
+                                            </div>                                        </div>
+                                        <div class="row py-2 mx-auto d-flex align-items-center">
+                                            <div class="col-7">
+                                                Abrir Gripper
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <input type="button" id="btnOpenGripper" name="" class="btn btn-success btn-sm" value="Aceptar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  ::::: END OF PROCESS CONTROL ::::::: -->
+
+                        </div>
+                    </div>
+                </div>
+                <!--  ::::: END OF CONTROL SECTION ::::::: -->
+
+                <!--  ::::: MONITORING SECTION ::::::: -->
+                <div class="tab-pane fade" id="nav-monitoring" role="tabpanel" aria-labelledby="nav-monitoring-tab">
+                    <% if(JSON.parse(dataScara).id == 'scaraIJ01' || JSON.parse(dataScara).id == 'scaraIJ02') { %>
+                        <% include ./monitoringIJ.ejs %>
+                    <% } else if(JSON.parse(dataScara).id == 'scaraJM01' || JSON.parse(dataScara).id == 'scaraJM02') { %>
+                        <% include ./monitoringJM.ejs %>
+                    <% }%>
+                </div>
+                <!--  ::::: END OF FIN MONITOREO ::::::: -->
+            </div>           

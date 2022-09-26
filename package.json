@@ -1,0 +1,38 @@
+{
+  "name": "v2",
+  "version": "1.0.0",
+  "description": "Line: Tamayo. Factory: Thales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "Smart Software Systems",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "delay": "^4.3.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "font-awesome-animation": "^0.2.1",
+    "fontawesome": "^5.6.3",
+    "jquery": "^3.4.1",
+    "jsmodbus": "2.4.0",
+    "madge": "^3.6.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.9",
+    "morgan": "^1.9.1",
+    "mssql": "^6.0.1",
+    "node-windows": "^0.1.14",
+    "pm2": "^4.2.3",
+    "shelljs": "^0.8.3",
+    "socket.io": "^2.3.0",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "nodemon": "^1.19.4"
+  }
+}

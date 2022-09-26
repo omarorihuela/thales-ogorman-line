@@ -1,0 +1,78 @@
+
+  <div class="fixed-bottom" style="z-index:-1;">
+    <div class="d-flex justify-content-end">
+      <img src="img/AEG.png" class="img-fluid mx-3 my-2" alt="Responsive image" style="width: 15%; height: 60px;">
+    </div>
+    <footer class="text-center text-dark d-flex justify-content-center align-items-center bg-light">
+      <div>
+        Interfaz desarrollada por AEG Systems S.A. de C.V. | Agustin de Iturbide #18, Col. Miguel Hidalgo, Jiutepec, Morelos. 62556
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* ** This script controls the navigation menu between each section ** */
+    function showProduction() {
+        $('#nav-production-tab').addClass('active');
+        $('#nav-production').addClass('show active');
+        $('#nav-production-tab').addClass('text-dark');
+        $('#nav-production-tab').removeClass('text-light');
+        $('#nav-production-tab').addClass('border-bottom-0');
+
+        $('#nav-control-tab').removeClass('active');
+        $('#nav-monitoring-tab').removeClass('active');
+        $('#nav-control').removeClass('show active');
+        $('#nav-monitoring').removeClass('show active');
+        $('#nav-control-tab').removeClass('text-dark');
+        $('#nav-monitoring-tab').removeClass('text-dark');
+        $('#nav-control-tab').addClass('text-light');
+        $('#nav-monitoring-tab').addClass('text-light');
+    }
+
+    function showControl() {
+        $('#nav-control-tab').addClass('active');
+        $('#nav-control').addClass('show active');
+        $('#nav-control-tab').addClass('text-dark');
+        $('#nav-control-tab').removeClass('text-light');
+        $('#nav-control-tab').addClass('border-bottom-0');
+
+        $('#nav-production-tab').removeClass('active');
+        $('#nav-monitoring-tab').removeClass('active');
+        $('#nav-production').removeClass('show active');
+        $('#nav-monitoring').removeClass('show active');
+        $('#nav-production-tab').removeClass('text-dark');
+        $('#nav-monitoring-tab').removeClass('text-dark');
+        $('#nav-production-tab').addClass('text-light');
+        $('#nav-monitoring-tab').addClass('text-light');
+    }
+
+    function showMonitoring() {
+        $('#nav-monitoring-tab').addClass('active');
+        $('#nav-monitoring').addClass('show active');
+        $('#nav-monitoring-tab').addClass('text-dark');
+        $('#nav-monitoring-tab').removeClass('text-light');
+        $('#nav-monitoring-tab').addClass('border-bottom-0');
+
+        $('#nav-control-tab').removeClass('active');
+        $('#nav-production-tab').removeClass('active');
+        $('#nav-control').removeClass('show active');
+        $('#nav-production').removeClass('show active');
+        $('#nav-control-tab').removeClass('text-dark');
+        $('#nav-production-tab').removeClass('text-dark');
+        $('#nav-control-tab').addClass('text-light');
+        $('#nav-production-tab').addClass('text-light');
+    }
+  </script>
+
+  <script>
+    /* This script shows the date and time on the top of the window */
+    $('#dateNav').text(moment().format('DD/MM/YYYY'));
+    $('#hourNav').text(moment().format('HH:mm:ss'));
+    setInterval(function() {
+      $('#dateNav').text(moment().format('DD/MM/YYYY'));
+      $('#hourNav').text(moment().format('HH:mm:ss'));
+    }, 1000);
+  </script>
+</body>
+
+</html>

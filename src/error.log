@@ -1,0 +1,164 @@
+Error | PLC IJ02 | Reading Holding Register 0 : 12 | :: [object Object] 15-04-2020 12:03:17
+Error | PLC JM01 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 12:15:42
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 15-04-2020 12:16:06
+Error | Modbus Cobot | Connection Failed | :: Error: write ECONNRESET 15-04-2020 12:20:07
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 15-04-2020 12:20:30
+Error | Modbus Cobot | Connection Failed | :: Error: read ECONNRESET 15-04-2020 12:33:32
+Error | PLC Cobot UR10 | Reading Holding Register 0 : 15 | :: [object Object] 15-04-2020 12:36:57
+Error | Modbus Cobot | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:19:37
+Error | PLC Cobot UR10 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:28:25
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 15-04-2020 14:28:49
+Error | Modbus Cobot | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:29:33
+Error | PLC JM02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.51:502 15-04-2020 14:29:56
+Error | PLC Cobot UR10 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:37:58
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 15-04-2020 14:38:22
+Error | PLC IJ02 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:44:48
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 15-04-2020 14:45:11
+Error | PLC IJ02 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:46:16
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 15-04-2020 14:46:40
+Error | PLC Cobot UR10 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 14:48:24
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:48:50
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:49:14
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:49:37
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:50:01
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:50:24
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:50:47
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:51:11
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:51:34
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:51:58
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:52:21
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:52:45
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:53:08
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:53:31
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:53:55
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:54:18
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:54:41
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:55:05
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:55:28
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:55:52
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:56:15
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:56:38
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:57:02
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:57:25
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:57:49
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:58:12
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:58:36
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:58:59
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:59:22
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 14:59:46
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:00:09
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:00:33
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:00:56
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:01:19
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:01:43
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:02:06
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:02:30
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:02:53
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:03:16
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:03:40
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:04:03
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:04:27
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:04:50
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:05:13
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:05:37
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:06:00
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:06:24
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:06:47
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:07:10
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:07:34
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:07:57
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:08:20
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:08:44
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:09:07
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:09:31
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:09:54
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:10:17
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:10:41
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:11:04
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:11:28
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:11:51
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:12:14
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:12:38
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:13:01
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:13:24
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:13:48
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:14:11
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:14:35
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:14:58
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:15:22
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:15:45
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:16:08
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:16:32
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:16:55
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:17:19
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:17:42
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:18:05
+Error | Modbus Cobot | Connection Failed | :: Error: connect ECONNABORTED 192.168.40.30:502 15-04-2020 15:18:21
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:18:45
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:19:08
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:19:31
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:19:55
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:20:18
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:20:41
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:21:05
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:21:28
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:21:52
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:22:15
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:22:39
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:23:02
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:23:25
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:23:49
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:24:12
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:24:36
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:24:59
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:25:22
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:25:46
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:26:09
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:26:33
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:26:56
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:27:19
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:27:43
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:28:06
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:28:30
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:28:53
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:29:16
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:29:40
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:30:03
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:30:27
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:30:50
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:31:13
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:31:37
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:32:00
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:32:24
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:32:47
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:33:10
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 15-04-2020 15:33:34
+Error | PLC IJ01 | Connection Failed | :: Error: read ECONNRESET 15-04-2020 15:34:33
+Error | Modbus Cobot | Connection Failed | :: Error: connect EHOSTUNREACH 192.168.40.30:502 15-04-2020 18:34:42
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 16-04-2020 14:48:40
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 16-04-2020 14:49:04
+Error | PLC IJ01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.21:502 16-04-2020 14:49:27
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 16-04-2020 14:49:50
+Error | PLC JM02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.51:502 16-04-2020 14:50:13
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 16-04-2020 14:50:37
+Error | PLC JM02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.51:502 16-04-2020 14:51:00
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 16-04-2020 14:51:24
+Error | PLC IJ01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.21:502 16-04-2020 14:51:47
+Error | PLC IJ01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.21:502 16-04-2020 14:52:11
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 16-04-2020 14:52:34
+Error | PLC JM02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.51:502 16-04-2020 14:52:58
+Error | PLC JM02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.51:502 16-04-2020 14:53:21
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 16-04-2020 14:53:44
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 16-04-2020 14:54:08
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 16-04-2020 14:54:31
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 16-04-2020 14:54:55
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 16-04-2020 14:55:18
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 16-04-2020 14:55:41
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 16-04-2020 14:56:05
+Error | PLC IJ01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.21:502 16-04-2020 14:56:28
+Error | PLC Cobot UR10 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.31:502 16-04-2020 14:56:51
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 16-04-2020 14:57:14
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 16-04-2020 14:57:38
+Error | PLC JM01 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.11:502 16-04-2020 14:58:01
+Error | PLC IJ02 | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.41:502 16-04-2020 14:58:25
+Error | Modbus Cobot | Connection Failed | :: Error: connect ETIMEDOUT 192.168.40.30:502 16-04-2020 14:58:49

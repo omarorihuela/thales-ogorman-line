@@ -1,0 +1,61 @@
+:root {
+  /* Set the colors of Bootstrap into variables. */
+  --primary: #007bff;
+  --info: #17a2b8;
+  --success: #28a745;
+  --warning: #ffc107; 
+}
+
+body {
+  font-family: 'Ubuntu', 'Lato', sans-serif;  /* Set the font family for the app. */
+}
+
+div.nav-item:hover {
+  /* Set the background color of each item of the navbar 
+    on dark when the cursor is hover */
+  background-color: rgba(0, 0, 0, 0.1)!important;
+}
+
+div.nav-item a:hover {
+  /* Change the color and the font wieght of each item of 
+    the navbar when the cursor is hover*/
+  color: #01579b!important;
+  font-weight: bold;
+}
+
+main {
+  /* Use the position relative to the main label
+    to be able to manipulate the .iconDataBase 
+    and place it where we want*/
+  position: relative;
+}
+
+.iconDataBase {
+  /* Use the position absolute to the .iconDataBase 
+    to place it where we want */
+  position: absolute;
+  top: 0;
+  right: 1rem;  
+  z-index: 2;
+}
+.iconPLC {
+  /* Use the position absolute to the .iconDataBase 
+  to place it where we want */
+  position: absolute;
+  top: 0;
+  right: 1rem;  
+  z-index: 2;
+}
+
+#iconDataBase > .animated {
+  /* Send the animated icon to the background
+  with z-index: -1 */
+  position: absolute;
+  z-index: -1;
+}
+.iconPLC.animated {
+  /* Send the animated icon to the background
+  with z-index: -1 */
+  position: absolute;
+  z-index: -1;
+}

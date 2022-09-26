@@ -1,0 +1,11 @@
+﻿Respaldo VelascoApp
+Fecha 07.04.2020
+
+En está versión se añadió la funcionalidad 
+de reiniciar la app con PM2 cada vez que se
+genera un error.
+
+Este cambió se hizo en el programa errorLog.js
+ubicado en la carpeta 'modules'.
+
+También se agrego el módulo 'shelljs'.

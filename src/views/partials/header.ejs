@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="esp" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>AEG ROBOTIC GUI</title>
+
+  <!-- Normalize.css -->
+  <link href="css/normalize.css" rel="stylesheet">  
+  
+  <!-- Bootstrap.css :: v4.3.1 -->
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  
+  <!-- style.css -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Fontawesome.js -->
+  <script src="css/fontawesome/js/all.js"></script>
+
+  <!-- Fontawesome Animated.css -->
+  <link rel="stylesheet" href="css/fontawesome/css/animated.css">
+  
+  <!-- JQuery.js :: v3.4.1 -->
+  <script src="jquery/dist/jquery.min.js"></script>
+  
+  <!-- Toast -->
+  <link rel="stylesheet" href="toastr/build/toastr.min.css">
+  <script src="toastr/build/toastr.min.js"></script>
+
+  <!-- Moment.js -->
+  <script src="moment/min/moment.min.js"></script>
+
+  <!-- Socket IO -->
+  <script src="socket.io/socket.io.js"></script>
+
+  <style>
+    .navActive {
+      background-color: #343a40; 
+    }
+    .navActive a {
+      color: #ffffff !important;
+    }
+  </style>
+
+</head>
+
+<body class="bg-dark">
+  <header>
+    <div class="row m-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+        <div class="col-2">
+          <a href="/" class="">
+            <img src="img/thales.png" class="img-fluid mx-3" alt="Responsive image" style="height: 3rem">
+          </a>
+        </div>
+        <div class="col-8 d-flex flex-row align-items-center" >
+          <div id="navCobotUR10" class="nav-item rounded mx-3 col p-0">
+            <a class="text-decoration-none nav-link text-center text-secondary" href="cobotUR10">Cobot UR-004</a>
+          </div>          
+          <div id="navIJ01" class="nav-item rounded mx-3 col p-0">
+            <a class="text-decoration-none nav-link text-center text-secondary" href="scaraIJ01">SCARA-013</a> 
+          </div>
+          <div id="navIJ02" class="nav-item rounded mx-3 col p-0">
+            <a class="text-decoration-none nav-link text-center text-secondary" href="scaraIJ02">SCARA-015</a> 
+          </div>
+          <div id="navJM01" class="nav-item rounded mx-3 col p-0">
+            <a class="text-decoration-none nav-link text-center text-secondary" href="scaraJM01">SCARA-014</a> 
+          </div>
+          <div id="navJM02"class="nav-item rounded mx-3 col p-0">
+            <a class="text-decoration-none nav-link text-center text-secondary" href="scaraJM02">SCARA-016</a>
+          </div>            
+          <div class="pl-5">
+            <a href="Production">
+              <i class="fas fa-server h3 m-0 text-dark"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="m-0 text-center d-flex align-items-center">
+              <div id="dateNav" class="m-0 text-center"> - - - </div>
+            </div>
+            <div class="m-0 text-center d-flex align-items-center">
+              <div id="hourNav" class="m-0 text-center">-:-:-</div>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </header>
