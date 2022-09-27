@@ -5,10 +5,8 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-// console.log(indexRoutes);
-
 // Settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -21,7 +19,6 @@ app.use(express.static(path.join(__dirname, 'assets')));
 
 // Importing Routes
 const indexRoutes = require('./routes/routes.js');
-// Using routes
 app.use('/', indexRoutes.router);
 
 // Starting the Web server

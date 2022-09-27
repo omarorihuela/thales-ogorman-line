@@ -1,17 +1,14 @@
-/* 
-    AEG Systems | Smart Software Systems
-    Thales Group : Tamayo Line
-*/
-const express = require('express');
-const router = express.Router();
 const net = require('net');
 const moment = require('moment');
 const delay = require('delay');
 const event = require('events');
 
-const db = require('./../modules/dbThales');
-const errorLog = require('./../modules/errorLog.js');
-var machinesData = require('./../modules/machinesData');
+const express = require('express');
+const router = express.Router();
+
+// const db = require('./../modules/dbThales');
+// const errorLog = require('./../modules/errorLog.js');
+// var machinesData = require('./../modules/machinesData');
 
 var clientConnectedCobotUR10 = false;
 var clientConnectedScaraIJ01 = false;
@@ -21,24 +18,24 @@ var clientConnectedScaraJM02 = false;
 
 /* Require the modules programs that are in charge of
     the comunication with PLCs ---------------- */
-    const modbusCobot = require('./../modules/modbusCobot');
-    const modbusPLC_cobotUR10 = require('../modules/modbusPLC_cobotUR10');
-    const modbusPLC_IJ01 = require('../modules/modbusPLC_IJ01')
-    const modbusPLC_IJ02 = require('../modules/modbusPLC_IJ02');
-    const modbusPLC_JM01 = require('../modules/modbusPLC_JM01');
-    const modbusPLC_JM02 = require('../modules/modbusPLC_JM02');
+    // const modbusCobot = require('./../modules/modbusCobot');
+    // const modbusPLC_cobotUR10 = require('../modules/modbusPLC_cobotUR10');
+    // const modbusPLC_IJ01 = require('../modules/modbusPLC_IJ01')
+    // const modbusPLC_IJ02 = require('../modules/modbusPLC_IJ02');
+    // const modbusPLC_JM01 = require('../modules/modbusPLC_JM01');
+    // const modbusPLC_JM02 = require('../modules/modbusPLC_JM02');
 /* <------------------------------------------- */
 
 /* Initialice the events  --------------------> */
     const routesEvent = new event();
-    const dbEvent = db.event.emitter;
-    const modbusCobotEvent = modbusCobot.event.emitter;
-    const modbusPLC_cobotUR10Event = modbusPLC_cobotUR10.event.emitter;
-    const modbusPLC_IJ01Event = modbusPLC_IJ01.event.emitter;
-    const modbusPLC_IJ02Event = modbusPLC_IJ02.event.emitter;
-    const modbusPLC_JM01Event = modbusPLC_JM01.event.emitter;
-    const modbusPLC_JM02Event = modbusPLC_JM02.event.emitter;
-    const errorLogEvent = errorLog.event.emitter;
+    // const dbEvent = db.event.emitter;
+    // const modbusCobotEvent = modbusCobot.event.emitter;
+    // const modbusPLC_cobotUR10Event = modbusPLC_cobotUR10.event.emitter;
+    // const modbusPLC_IJ01Event = modbusPLC_IJ01.event.emitter;
+    // const modbusPLC_IJ02Event = modbusPLC_IJ02.event.emitter;
+    // const modbusPLC_JM01Event = modbusPLC_JM01.event.emitter;
+    // const modbusPLC_JM02Event = modbusPLC_JM02.event.emitter;
+    // const errorLogEvent = errorLog.event.emitter;
 /* <------------------------------------------- */
 
 /* Socket io ---------------------------------> */
@@ -47,8 +44,8 @@ var clientConnectedScaraJM02 = false;
 
 /* _machineShiftCounter is an object with all the information
 that is going to be showed on the 'Production' Window -----> */
-    const MachineShiftsCounters = require('../models/db/machineShiftsCounters');
-    var _machineShiftsCounters = new MachineShiftsCounters();
+    // const MachineShiftsCounters = require('../models/db/machineShiftsCounters');
+    // var _machineShiftsCounters = new MachineShiftsCounters();
 /* <------------------------------------------- */
 
 /* Import the object structure of each robot -> */
@@ -68,13 +65,13 @@ that is going to be showed on the 'Production' Window -----> */
 
 
 /* Handle Errors -----------------------------> */
-    dbEvent.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusCobotEvent.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusPLC_cobotUR10Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusPLC_IJ01Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusPLC_IJ02Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusPLC_JM01Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
-    modbusPLC_JM02Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // dbEvent.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusCobotEvent.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusPLC_cobotUR10Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusPLC_IJ01Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusPLC_IJ02Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusPLC_JM01Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
+    // modbusPLC_JM02Event.on('errorLog', function(err) {errorLogEvent.emit('errorLog', err)});
 /* <------------------------------------------- */
 
 /* Open Scara Sockets ------------------------> */
@@ -133,49 +130,49 @@ that is going to be showed on the 'Production' Window -----> */
 
     //This event notify us that new registers have been created
     // and then we proceed to reset the Shift Counters
-    dbEvent.on('creatingNewRegisters', async function() {
-        dbInitialized = false;
-        resetShiftCardsCountersFunction(true);
-        await delay(1000);
-        resetShiftCardsCountersFunction(false);
-        console.log('Shift Counters Reseted');
-        dbEvent.emit('Initialized');
-    });
+    // dbEvent.on('creatingNewRegisters', async function() {
+    //     dbInitialized = false;
+    //     resetShiftCardsCountersFunction(true);
+    //     await delay(1000);
+    //     resetShiftCardsCountersFunction(false);
+    //     console.log('Shift Counters Reseted');
+    //     dbEvent.emit('Initialized');
+    // });
 
-    dbEvent.on('Initialized' , async function (){
-        console.log('Database Initialized');
-        for (let i = 1; i < 8 ; i++) {
-            let machine = switchMachine(i);
-            let result = await db.SELECT(`SELECT TOP 3 * FROM CounterShift WHERE idMachine = ${i} ORDER BY creationDateTime DESC`);
-            if (result.rowsAffected != 0 ){
-                if (machine == 'Metronic') {modbusPLC_cobotUR10('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}            
-                if (machine == 'ICI01'){modbusPLC_IJ01('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-                if (machine == 'ICI02'){modbusPLC_IJ02('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-                if (machine == 'Jinguan01'){modbusPLC_JM01('timeWorkingJinguan', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-                if (machine == 'Jinguan02'){modbusPLC_JM02('timeWorkingJinguan', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-                if (machine == 'MPR01'){modbusPLC_JM01('timeWorkingMPR', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-                if (machine == 'MPR02'){modbusPLC_JM02('timeWorkingMPR', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
-            }
-        }
-        dbInitialized = true;
-    });
+    // dbEvent.on('Initialized' , async function (){
+    //     console.log('Database Initialized');
+    //     for (let i = 1; i < 8 ; i++) {
+    //         let machine = switchMachine(i);
+    //         let result = await db.SELECT(`SELECT TOP 3 * FROM CounterShift WHERE idMachine = ${i} ORDER BY creationDateTime DESC`);
+    //         if (result.rowsAffected != 0 ){
+    //             if (machine == 'Metronic') {modbusPLC_cobotUR10('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}            
+    //             if (machine == 'ICI01'){modbusPLC_IJ01('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //             if (machine == 'ICI02'){modbusPLC_IJ02('timeWorking', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //             if (machine == 'Jinguan01'){modbusPLC_JM01('timeWorkingJinguan', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //             if (machine == 'Jinguan02'){modbusPLC_JM02('timeWorkingJinguan', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //             if (machine == 'MPR01'){modbusPLC_JM01('timeWorkingMPR', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //             if (machine == 'MPR02'){modbusPLC_JM02('timeWorkingMPR', [result.recordset[0].machineOn, result.recordset[0].machineOff])}
+    //         }
+    //     }
+    //     dbInitialized = true;
+    // });
 /* <------------------------------------------- */
 
 /* Events from the modbus Cobot --------------> */
-    modbusCobotEvent.on('protectiveStop', (value) => {
-        value == 1 ? modbusPLC_cobotUR10('protectiveStop', true) : modbusPLC_cobotUR10('protectiveStop', false);
-    });
-    modbusCobotEvent.on('emergencyStop', (value) => {
-        value == 1 ? modbusPLC_cobotUR10('emergencyStop', true) : modbusPLC_cobotUR10('emergencyStop', false);
-    });
-    modbusCobotEvent.on('endChangeFormat', () => {
-        _cobotUR10.control.general.changeFormat = '0';
-        _cobotUR10.control.process.stateICI01 = '0';
-        io.emit('endChangeFormat');
-    });
-    modbusCobotEvent.on('bufferReseted', () => {
-        _cobotUR10.production.cobotBuffer.resetBuffer = '0';
-    });
+    // modbusCobotEvent.on('protectiveStop', (value) => {
+    //     value == 1 ? modbusPLC_cobotUR10('protectiveStop', true) : modbusPLC_cobotUR10('protectiveStop', false);
+    // });
+    // modbusCobotEvent.on('emergencyStop', (value) => {
+    //     value == 1 ? modbusPLC_cobotUR10('emergencyStop', true) : modbusPLC_cobotUR10('emergencyStop', false);
+    // });
+    // modbusCobotEvent.on('endChangeFormat', () => {
+    //     _cobotUR10.control.general.changeFormat = '0';
+    //     _cobotUR10.control.process.stateICI01 = '0';
+    //     io.emit('endChangeFormat');
+    // });
+    // modbusCobotEvent.on('bufferReseted', () => {
+    //     _cobotUR10.production.cobotBuffer.resetBuffer = '0';
+    // });
 /* <------------------------------------------- */
 
 async function main () {
@@ -201,7 +198,7 @@ async function main () {
                 await delay(100);
             }
         }
-        startPLCPrograms();
+        // startPLCPrograms();
     /* <------------------------------------------- */
 
     /* Render the view of each window ------------> */
@@ -232,354 +229,352 @@ async function main () {
     /* <------------------------------------------- */
     
     /* Client connected --------------------------> */
-        router.post('/clientConnected/:id', (req, res) => {
-            let {id} = req.params;
-            console.log(req.body);
-            let browserOperationMode = req.body;
-            if (id == 'cobotUR10'){
-                if (!clientConnectedCobotUR10) {
+        // router.post('/clientConnected/:id', (req, res) => {
+        //     let {id} = req.params;
+        //     console.log(req.body);
+        //     let browserOperationMode = req.body;
+        //     if (id == 'cobotUR10'){
+        //         if (!clientConnectedCobotUR10) {
     
-                    _cobotUR10.control.process.stateMetronic = browserOperationMode.stateMetronic;
-                    _cobotUR10.control.process.stateBuffer = browserOperationMode.stateBuffer;
-                    _cobotUR10.control.process.stateICI01 = browserOperationMode.stateICI01;
-                    _cobotUR10.control.process.stateICI02 = browserOperationMode.stateICI02;
+        //             _cobotUR10.control.process.stateMetronic = browserOperationMode.stateMetronic;
+        //             _cobotUR10.control.process.stateBuffer = browserOperationMode.stateBuffer;
+        //             _cobotUR10.control.process.stateICI01 = browserOperationMode.stateICI01;
+        //             _cobotUR10.control.process.stateICI02 = browserOperationMode.stateICI02;
     
-                    routesEvent.emit('clientConnectedCobotUR10');
+        //             routesEvent.emit('clientConnectedCobotUR10');
                     
-                    clientConnectedCobotUR10 = true;
-                }
-            } else if (id == 'scaraIJ01'){
-                if (!clientConnectedScaraIJ01) {
+        //             clientConnectedCobotUR10 = true;
+        //         }
+        //     } else if (id == 'scaraIJ01'){
+        //         if (!clientConnectedScaraIJ01) {
     
-                    _scaraIJ01.control.process.stateICI = browserOperationMode.stateICI;
-                    _scaraIJ01.control.process.stateBuffer = browserOperationMode.stateBuffer;
-                    _scaraIJ01.control.process.stateJinguan = browserOperationMode.stateJinguan;
+        //             _scaraIJ01.control.process.stateICI = browserOperationMode.stateICI;
+        //             _scaraIJ01.control.process.stateBuffer = browserOperationMode.stateBuffer;
+        //             _scaraIJ01.control.process.stateJinguan = browserOperationMode.stateJinguan;
     
-                    clientConnectedScaraIJ01 = true;
+        //             clientConnectedScaraIJ01 = true;
 
-                    routesEvent.emit('clientConnectedScaraIJ01');
-                }
-            } else if (id == 'scaraIJ02'){
-                if (!clientConnectedScaraIJ02) {
+        //             routesEvent.emit('clientConnectedScaraIJ01');
+        //         }
+        //     } else if (id == 'scaraIJ02'){
+        //         if (!clientConnectedScaraIJ02) {
 
-                    _scaraIJ02.control.process.stateICI = browserOperationMode.stateICI;
-                    _scaraIJ02.control.process.stateBuffer = browserOperationMode.stateBuffer;
-                    _scaraIJ02.control.process.stateJinguan = browserOperationMode.stateJinguan;
+        //             _scaraIJ02.control.process.stateICI = browserOperationMode.stateICI;
+        //             _scaraIJ02.control.process.stateBuffer = browserOperationMode.stateBuffer;
+        //             _scaraIJ02.control.process.stateJinguan = browserOperationMode.stateJinguan;
     
-                    clientConnectedScaraIJ02 = true;
+        //             clientConnectedScaraIJ02 = true;
 
-                    routesEvent.emit('clientConnectedScaraIJ02');
-                }
-            } else if (id == 'scaraJM01'){
-                if (!clientConnectedScaraJM01) {
+        //             routesEvent.emit('clientConnectedScaraIJ02');
+        //         }
+        //     } else if (id == 'scaraJM01'){
+        //         if (!clientConnectedScaraJM01) {
     
-                    _scaraJM01.control.process.stateJinguan = browserOperationMode.stateJinguan;
-                    _scaraJM01.control.process.stateBuffer = browserOperationMode.stateBuffer;
-                    _scaraJM01.control.process.stateMPR = browserOperationMode.stateMPR;
+        //             _scaraJM01.control.process.stateJinguan = browserOperationMode.stateJinguan;
+        //             _scaraJM01.control.process.stateBuffer = browserOperationMode.stateBuffer;
+        //             _scaraJM01.control.process.stateMPR = browserOperationMode.stateMPR;
     
-                    clientConnectedScaraJM01 = true;
+        //             clientConnectedScaraJM01 = true;
 
-                    routesEvent.emit('clientConnectedScaraJM01');
-                }
-            } else if (id == 'scaraJM02'){
-                if (!clientConnectedScaraJM02) {
+        //             routesEvent.emit('clientConnectedScaraJM01');
+        //         }
+        //     } else if (id == 'scaraJM02'){
+        //         if (!clientConnectedScaraJM02) {
     
-                    _scaraJM02.control.process.stateJinguan = browserOperationMode.stateJinguan;
-                    _scaraJM02.control.process.stateBuffer = browserOperationMode.stateBuffer;
-                    _scaraJM02.control.process.stateMPR = browserOperationMode.stateMPR;
+        //             _scaraJM02.control.process.stateJinguan = browserOperationMode.stateJinguan;
+        //             _scaraJM02.control.process.stateBuffer = browserOperationMode.stateBuffer;
+        //             _scaraJM02.control.process.stateMPR = browserOperationMode.stateMPR;
     
-                    clientConnectedScaraJM02 = true;
+        //             clientConnectedScaraJM02 = true;
 
-                    routesEvent.emit('clientConnectedScaraJM02');
-                }
-            }
-            res.end();
-        })
+        //             routesEvent.emit('clientConnectedScaraJM02');
+        //         }
+        //     }
+        //     res.end();
+        // })
     /* <------------------------------------------- */
 
     /* Manage band operation ---------------------> */
-        router.post('/bandStartStop', (req, res) => {
-            let data = req.body;
+        // router.post('/bandStartStop', (req, res) => {
+        //     let data = req.body;
 
-            console.log('Data from client => bandStartStop : ', data); 
-            if (data.bandStatus == '1') {
-                _cobotUR10.bandMetronic.start = true;
-                _cobotUR10.bandMetronic.pause = true;
-                _cobotUR10.bandMetronic.reset = false;
-                modbusPLC_cobotUR10('bandStart', _cobotUR10.bandMetronic.start);
-            } else if (data.bandStatus == '0') {
-                _cobotUR10.bandMetronic.start = false;
-                _cobotUR10.bandMetronic.pause = false;
-                _cobotUR10.bandMetronic.reset = false;
-                modbusPLC_cobotUR10('bandStop', _cobotUR10.bandMetronic.stop);
-            }
+        //     console.log('Data from client => bandStartStop : ', data); 
+        //     if (data.bandStatus == '1') {
+        //         _cobotUR10.bandMetronic.start = true;
+        //         _cobotUR10.bandMetronic.pause = true;
+        //         _cobotUR10.bandMetronic.reset = false;
+        //         modbusPLC_cobotUR10('bandStart', _cobotUR10.bandMetronic.start);
+        //     } else if (data.bandStatus == '0') {
+        //         _cobotUR10.bandMetronic.start = false;
+        //         _cobotUR10.bandMetronic.pause = false;
+        //         _cobotUR10.bandMetronic.reset = false;
+        //         modbusPLC_cobotUR10('bandStop', _cobotUR10.bandMetronic.stop);
+        //     }
 
-            res.end();
-        });
+        //     res.end();
+        // });
 
-        router.post('/bandReset', (req, res) => {
-            let data = req.body;
-            console.log('Data from client => bandReset : ', data); 
+        // router.post('/bandReset', (req, res) => {
+        //     let data = req.body;
+        //     console.log('Data from client => bandReset : ', data); 
             
-            _cobotUR10.bandMetronic.reset = true;
-            _cobotUR10.bandMetronic.pause = false;
+        //     _cobotUR10.bandMetronic.reset = true;
+        //     _cobotUR10.bandMetronic.pause = false;
 
-            modbusPLC_cobotUR10('bandReset', _cobotUR10.bandMetronic.reset);
+        //     modbusPLC_cobotUR10('bandReset', _cobotUR10.bandMetronic.reset);
 
-            res.end();
-        });
+        //     res.end();
+        // });
     /* <------------------------------------------- */
 
     /* Reset Cards Counter -----------------------> */
-        router.post('/resetLotCardsCounters', async function (req, res) {
-            let data = req.body;
+        // router.post('/resetLotCardsCounters', async function (req, res) {
+        //     let data = req.body;
         
-            console.log('Data from client => resetLotCounterCards : ', data); 
+        //     console.log('Data from client => resetLotCounterCards : ', data); 
 
-            console.log('db: ', db);
+        //     let creationDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
+        //     creationDateTime = `CONVERT(datetime,'${creationDateTime}',120)`;
+        //     let lastUpdateDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
+        //     lastUpdateDateTime = `CONVERT(datetime,'${lastUpdateDateTime}',120)`;
+        //     for (let i = 1 ; i < 8 ; i++){
+        //         console.log('setValues: ', machinesData().switchMachine(i));
+        //         let machine = machinesData().switchMachine(i);
+        //         await (db.INSERT(`INSERT INTO CounterLot (idMachine, inputA, inputB, output, rejections, creationDateTime, lastUpdateDateTime) VALUES (${i}, 0, 0, 0, 0, ${creationDateTime}, ${lastUpdateDateTime})`));
 
-            let creationDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
-            creationDateTime = `CONVERT(datetime,'${creationDateTime}',120)`;
-            let lastUpdateDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
-            lastUpdateDateTime = `CONVERT(datetime,'${lastUpdateDateTime}',120)`;
-            for (let i = 1 ; i < 8 ; i++){
-                console.log('setValues: ', machinesData().switchMachine(i));
-                let machine = machinesData().switchMachine(i);
-                await (db.INSERT(`INSERT INTO CounterLot (idMachine, inputA, inputB, output, rejections, creationDateTime, lastUpdateDateTime) VALUES (${i}, 0, 0, 0, 0, ${creationDateTime}, ${lastUpdateDateTime})`));
-
-            }
-            resetLotCardsCountersFunction(true);
-            await delay(1000); 
-            resetLotCardsCountersFunction(false);
-            res.end();
-        })
+        //     }
+        //     resetLotCardsCountersFunction(true);
+        //     await delay(1000); 
+        //     resetLotCardsCountersFunction(false);
+        //     res.end();
+        // })
     /* <------------------------------------------- */
 
     /* Routes to send data to each window --------> */
-        router.get('/:id/Production/getData', (req, res) => {
-            let {id} = req.params;
-            if ( id == 'cobotUR10'){
-                clientConnectedCobotUR10 ? res.json(_cobotUR10) : res.send('ClientDisconnected');
-            } else if ( id == 'scaraIJ01' ) {
-                clientConnectedScaraIJ01 ? res.json(_scaraIJ01) : res.send('ClientDisconnected');
-            } else if ( id == 'scaraIJ02' ) {
-                clientConnectedScaraIJ02 ? res.json(_scaraIJ02) : res.send('ClientDisconnected');
-            } else if ( id == 'scaraJM01' ) {
-                clientConnectedScaraJM01 ? res.json(_scaraJM01) : res.send('ClientDisconnected');
-            } else if ( id == 'scaraJM02' ) {
-                clientConnectedScaraJM02 ? res.json(_scaraJM02) : res.send('ClientDisconnected');
-            }
-            //console.log('Data sended');
-            res.end();
-        });
-        router.get('/index/getData',async (req,res) => {
-            let _Metronic = await machinesData().switchMachine(1);
-            let _ICI01 = await machinesData().switchMachine(2);
-            let _Jinguan01 = await machinesData().switchMachine(3);
-            let _MPR01 = await machinesData().switchMachine(4);
-            let _ICI02 =  await machinesData().switchMachine(5);
-            let _Jinguan02 = await machinesData().switchMachine(6);
-            let _MPR02 = await machinesData().switchMachine(7);
-            let data = {
-                _Metronic,
-                _ICI01,
-                _Jinguan01,
-                _MPR01,
-                _ICI02,
-                _Jinguan02,
-                _MPR02
-            }
-            // console.log(data);
-            res.json(data);
-            res.end();
-        })
-        router.get('/production/getData', (req, res) => {
-            res.json(_machineShiftsCounters);
-        });
+        // router.get('/:id/Production/getData', (req, res) => {
+        //     let {id} = req.params;
+        //     if ( id == 'cobotUR10'){
+        //         clientConnectedCobotUR10 ? res.json(_cobotUR10) : res.send('ClientDisconnected');
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         clientConnectedScaraIJ01 ? res.json(_scaraIJ01) : res.send('ClientDisconnected');
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         clientConnectedScaraIJ02 ? res.json(_scaraIJ02) : res.send('ClientDisconnected');
+        //     } else if ( id == 'scaraJM01' ) {
+        //         clientConnectedScaraJM01 ? res.json(_scaraJM01) : res.send('ClientDisconnected');
+        //     } else if ( id == 'scaraJM02' ) {
+        //         clientConnectedScaraJM02 ? res.json(_scaraJM02) : res.send('ClientDisconnected');
+        //     }
+        //     //console.log('Data sended');
+        //     res.end();
+        // });
+        // router.get('/index/getData',async (req,res) => {
+        //     let _Metronic = await machinesData().switchMachine(1);
+        //     let _ICI01 = await machinesData().switchMachine(2);
+        //     let _Jinguan01 = await machinesData().switchMachine(3);
+        //     let _MPR01 = await machinesData().switchMachine(4);
+        //     let _ICI02 =  await machinesData().switchMachine(5);
+        //     let _Jinguan02 = await machinesData().switchMachine(6);
+        //     let _MPR02 = await machinesData().switchMachine(7);
+        //     let data = {
+        //         _Metronic,
+        //         _ICI01,
+        //         _Jinguan01,
+        //         _MPR01,
+        //         _ICI02,
+        //         _Jinguan02,
+        //         _MPR02
+        //     }
+        //     // console.log(data);
+        //     res.json(data);
+        //     res.end();
+        // })
+        // router.get('/production/getData', (req, res) => {
+        //     res.json(_machineShiftsCounters);
+        // });
     /* <------------------------------------------- */
 
     /* Routes of the 'Produccion' section --------> */
-        router.post('/:id/Production/resetBuffer', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        // router.post('/:id/Production/resetBuffer', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
         
-            console.log('Id: ', id);
-            console.log('Data from client => resetBuffer', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => resetBuffer', data);
         
-            if ( id == 'cobotUR10') {
-                _cobotUR10.production.cobotBuffer.resetBuffer = data.resetBuffer;
-            } else if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.production.bufferScara.resetBuffer = data.resetBuffer;
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.production.bufferScara.resetBuffer = data.resetBuffer;
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.production.bufferScara.resetBuffer = data.resetBuffer;
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.production.bufferScara.resetBuffer = data.resetBuffer;
-            }
+        //     if ( id == 'cobotUR10') {
+        //         _cobotUR10.production.cobotBuffer.resetBuffer = data.resetBuffer;
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.production.bufferScara.resetBuffer = data.resetBuffer;
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.production.bufferScara.resetBuffer = data.resetBuffer;
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.production.bufferScara.resetBuffer = data.resetBuffer;
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.production.bufferScara.resetBuffer = data.resetBuffer;
+        //     }
             
-            res.end()
-        })
+        //     res.end()
+        // })
     /* <------------------------------------------- */
         
     /* Routes of 'Control' section ---------------> */
-        router.post('/:id/Control/setPointCards', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        // router.post('/:id/Control/setPointCards', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => setPointCards ', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => setPointCards ', data);
 
-            if ( id == 'cobotUR10') {
-                _cobotUR10.control.general.setPointCards = data.setPointCards;
-                modbusPLC_cobotUR10('setPointCards', data.setPointCards);
-            } else if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.general.setPointCards = data.setPointCards;
-                modbusPLC_IJ01('setPointCards', data.setPointCards);
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.general.setPointCards = data.setPointCards;
-                modbusPLC_IJ02('setPointCards', data.setPointCards);
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.general.setPointCards = data.setPointCards;
-                modbusPLC_JM01('setPointCards', data.setPointCards);
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.general.setPointCards = data.setPointCards;
-                modbusPLC_JM02('setPointCards', data.setPointCards);
-            }
-            res.end();
-        })
+        //     if ( id == 'cobotUR10') {
+        //         _cobotUR10.control.general.setPointCards = data.setPointCards;
+        //         modbusPLC_cobotUR10('setPointCards', data.setPointCards);
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.general.setPointCards = data.setPointCards;
+        //         modbusPLC_IJ01('setPointCards', data.setPointCards);
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.general.setPointCards = data.setPointCards;
+        //         modbusPLC_IJ02('setPointCards', data.setPointCards);
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.general.setPointCards = data.setPointCards;
+        //         modbusPLC_JM01('setPointCards', data.setPointCards);
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.general.setPointCards = data.setPointCards;
+        //         modbusPLC_JM02('setPointCards', data.setPointCards);
+        //     }
+        //     res.end();
+        // })
 
         //Only the _cobotUR10 have the option to changeFormat
-        router.post('/cobotUR10/Control/changeFormat', (req, res) => {
-            let data = req.body;
-            console.log('Data from client => changeFormat: ', data);
+        // router.post('/cobotUR10/Control/changeFormat', (req, res) => {
+        //     let data = req.body;
+        //     console.log('Data from client => changeFormat: ', data);
 
-            _cobotUR10.control.general.changeFormat = data.changeFormat;
-            res.end(); 
+        //     _cobotUR10.control.general.changeFormat = data.changeFormat;
+        //     res.end(); 
 
-            _cobotUR10.control.process.stateICI02 = '0';
+        //     _cobotUR10.control.process.stateICI02 = '0';
 
-        })
+        // })
 
         /* Only the scara robots have the option to set a delay
             to raise after take the cards from the card container */
-        router.post('/:id/Control/delayRobotUp', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        // router.post('/:id/Control/delayRobotUp', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => delayRobotUp: ', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => delayRobotUp: ', data);
 
-            if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.general.delayRobotUp = data.delayRobotUp;
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.general.delayRobotUp = data.delayRobotUp;
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.general.delayRobotUp = data.delayRobotUp;
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.general.delayRobotUp = data.delayRobotUp;
-            }
+        //     if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.general.delayRobotUp = data.delayRobotUp;
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.general.delayRobotUp = data.delayRobotUp;
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.general.delayRobotUp = data.delayRobotUp;
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.general.delayRobotUp = data.delayRobotUp;
+        //     }
             
-            res.end()
-        })
+        //     res.end()
+        // })
 
-        router.post('/:id/Control/operationMode', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        // router.post('/:id/Control/operationMode', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => operationMode:  ', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => operationMode:  ', data);
 
-            if ( id == 'cobotUR10') {
-                _cobotUR10.control.process.stateMetronic = data.stateMetronic;
-                _cobotUR10.control.process.stateBuffer = data.stateBuffer;
-                _cobotUR10.control.process.stateICI01 = data.stateICI01;
-                _cobotUR10.control.process.stateICI02 = data.stateICI02;
-            } else if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.process.stateICI = data.stateICI;
-                _scaraIJ01.control.process.stateBuffer = data.stateBuffer;
-                _scaraIJ01.control.process.stateJinguan = data.stateJinguan;
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.process.stateICI = data.stateICI;
-                _scaraIJ02.control.process.stateBuffer = data.stateBuffer;
-                _scaraIJ02.control.process.stateJinguan = data.stateJinguan;
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.process.stateJinguan = data.stateJinguan;
-                _scaraJM01.control.process.stateBuffer = data.stateBuffer;
-                _scaraJM01.control.process.stateMPR = data.stateMPR;
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.process.stateJinguan = data.stateJinguan;
-                _scaraJM02.control.process.stateBuffer = data.stateBuffer;
-                _scaraJM02.control.process.stateMPR = data.stateMPR;
-            }
-            res.end()
-        })
-        router.post('/:id/Control/takeCards', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        //     if ( id == 'cobotUR10') {
+        //         _cobotUR10.control.process.stateMetronic = data.stateMetronic;
+        //         _cobotUR10.control.process.stateBuffer = data.stateBuffer;
+        //         _cobotUR10.control.process.stateICI01 = data.stateICI01;
+        //         _cobotUR10.control.process.stateICI02 = data.stateICI02;
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.process.stateICI = data.stateICI;
+        //         _scaraIJ01.control.process.stateBuffer = data.stateBuffer;
+        //         _scaraIJ01.control.process.stateJinguan = data.stateJinguan;
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.process.stateICI = data.stateICI;
+        //         _scaraIJ02.control.process.stateBuffer = data.stateBuffer;
+        //         _scaraIJ02.control.process.stateJinguan = data.stateJinguan;
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.process.stateJinguan = data.stateJinguan;
+        //         _scaraJM01.control.process.stateBuffer = data.stateBuffer;
+        //         _scaraJM01.control.process.stateMPR = data.stateMPR;
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.process.stateJinguan = data.stateJinguan;
+        //         _scaraJM02.control.process.stateBuffer = data.stateBuffer;
+        //         _scaraJM02.control.process.stateMPR = data.stateMPR;
+        //     }
+        //     res.end()
+        // })
+        // router.post('/:id/Control/takeCards', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => takeCards ', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => takeCards ', data);
 
-            if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.process.takeCards = data.takeCards;
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.process.takeCards = data.takeCards;
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.process.takeCards = data.takeCards;
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.process.takeCards = data.takeCards;
-            }
-            res.end();
-        })
-        router.post('/:id/Control/openGripper', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        //     if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.process.takeCards = data.takeCards;
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.process.takeCards = data.takeCards;
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.process.takeCards = data.takeCards;
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.process.takeCards = data.takeCards;
+        //     }
+        //     res.end();
+        // })
+        // router.post('/:id/Control/openGripper', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => openGripper ', data);
-            if(data.openGripper == '1'){data.openGripper = true};
-            if(data.openGripper == '0'){data.openGripper = false};
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => openGripper ', data);
+        //     if(data.openGripper == '1'){data.openGripper = true};
+        //     if(data.openGripper == '0'){data.openGripper = false};
 
 
-            if ( id == 'cobotUR10') {
-                _cobotUR10.control.process.openGripper = data.openGripper;
-                modbusPLC_cobotUR10('openGripper', data.openGripper);
-            } else if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.process.openGripper = data.openGripper;
-                modbusPLC_IJ01('openGripper', data.openGripper);
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.process.openGripper = data.openGripper;
-                modbusPLC_IJ02('openGripper', data.openGripper);
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.process.openGripper = data.openGripper;
-                modbusPLC_JM01('openGripper', data.openGripper);
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.process.openGripper = data.openGripper;
-                modbusPLC_JM02('openGripper', data.openGripper);
-            }
-            res.end();
-        })
-        router.post('/:id/Control/generalReset', (req, res) => {
-            let {id} = req.params;
-            let data = req.body;
+        //     if ( id == 'cobotUR10') {
+        //         _cobotUR10.control.process.openGripper = data.openGripper;
+        //         modbusPLC_cobotUR10('openGripper', data.openGripper);
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.process.openGripper = data.openGripper;
+        //         modbusPLC_IJ01('openGripper', data.openGripper);
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.process.openGripper = data.openGripper;
+        //         modbusPLC_IJ02('openGripper', data.openGripper);
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.process.openGripper = data.openGripper;
+        //         modbusPLC_JM01('openGripper', data.openGripper);
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.process.openGripper = data.openGripper;
+        //         modbusPLC_JM02('openGripper', data.openGripper);
+        //     }
+        //     res.end();
+        // })
+        // router.post('/:id/Control/generalReset', (req, res) => {
+        //     let {id} = req.params;
+        //     let data = req.body;
 
-            console.log('Id: ', id);
-            console.log('Data from client => generalReset ', data);
+        //     console.log('Id: ', id);
+        //     console.log('Data from client => generalReset ', data);
 
-            if ( id == 'cobotUR10') {
-                _cobotUR10.control.process.generalReset = data.generalReset;
-            } else if ( id == 'scaraIJ01' ) {
-                _scaraIJ01.control.process.generalReset = data.generalReset;
-            } else if ( id == 'scaraIJ02' ) {
-                _scaraIJ02.control.process.generalReset = data.generalReset;
-            } else if ( id == 'scaraJM01' ) {
-                _scaraJM01.control.process.generalReset = data.generalReset;
-            } else if ( id == 'scaraJM02' ) {
-                _scaraJM02.control.process.generalReset = data.generalReset;
-            }
-            res.end();
-        })
+        //     if ( id == 'cobotUR10') {
+        //         _cobotUR10.control.process.generalReset = data.generalReset;
+        //     } else if ( id == 'scaraIJ01' ) {
+        //         _scaraIJ01.control.process.generalReset = data.generalReset;
+        //     } else if ( id == 'scaraIJ02' ) {
+        //         _scaraIJ02.control.process.generalReset = data.generalReset;
+        //     } else if ( id == 'scaraJM01' ) {
+        //         _scaraJM01.control.process.generalReset = data.generalReset;
+        //     } else if ( id == 'scaraJM02' ) {
+        //         _scaraJM02.control.process.generalReset = data.generalReset;
+        //     }
+        //     res.end();
+        // })
     /* <------------------------------------------- */
 
     /*  Writing sockets SCARA --------------------> */
