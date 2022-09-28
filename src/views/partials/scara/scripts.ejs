@@ -1,6 +1,6 @@
 <script>
     /*  
-        ** This script catch the data sended from the server when the page is loaded
+        ** This script catch the data sent from the server when the page is loaded
         and initialize the state of each button and each field. **
 
     */
@@ -10,14 +10,14 @@
     let operationMode;
     //console.log(localStorage);
 
-    if (scaraObject.id == 'scaraIJ01') {
-        $('#Robot').text('Scara-013');
-        $('.machineBefore').text('ICI-034');
-        $('.machineAfter').text('Jinguan-009');
+    if (scaraObject.id == 'scara01') {
+        $('#Robot').text('Scara 01');
+        $('.machineBefore').text('ICI 033');
+        $('.machineAfter').text('ICI 035');
 
-        if (localStorage.scaraIJ01 == undefined) {
+        if (localStorage.scara01 == undefined) {
             operationMode =  {
-                scaraIJ01: {
+                scara01: {
                     stateICI: '1',
                     stateBuffer: '1',
                     stateJinguan: '1'
@@ -25,9 +25,9 @@
             }
 
         } else {
-            console.log(localStorage.scaraIJ01);
+            console.log(localStorage.scara01);
             operationMode = {
-                scaraIJ01: JSON.parse(localStorage.scaraIJ01)
+                scara01: JSON.parse(localStorage.scara01)
             }         
         }
 
@@ -114,9 +114,6 @@
         }
     })
 
-    /* Set the text on #machineBefore and #machineAfter fields -> */
-    /* <-------------------------------------------------------- */
-
    /* Initialice the value of setPointCards and delayRoboUp inputs -> */
         $('#inputSetPointCards').val(parseInt(scaraObject.control.general.setPointCards));
         $('#inputDelayRobotUp').val(parseInt(scaraObject.control.general.delayRobotUp));
@@ -151,7 +148,7 @@
         connectionWithPLCLost();
     }
 
-    /* Validate the input data on the input number boxes -------> */
+    /* Validate the input data in the input number boxes -------> */
         $('#inputSetPointCards').on('change', () => {
             if ( parseInt($('#inputSetPointCards').val()) > 39 && parseInt($('#inputSetPointCards').val()) < 61) {
                 null;
@@ -171,28 +168,24 @@
     /* <-------------------------------------------------------- */
 
     /* Keep active each element of the nav bar ----------------> */
-        if (scaraObject.id == 'scaraIJ01'){
-            $('#navIJ01').addClass('navActive');
-            $('#navCobotUR10').removeClass('navActive');
+        if (scaraObject.id == 'scara01'){
+            $('#navScara01').addClass('navActive');
             $('#navIJ02').removeClass('navActive');
             $('#navJM01').removeClass('navActive');
             $('#navJM02').removeClass('navActive');
         } else if (scaraObject.id == 'scaraIJ02'){
             $('#navIJ02').addClass('navActive');
-            $('#navCobotUR10').removeClass('navActive');
-            $('#navICI01').removeClass('navActive');
+            $('#navScara01').removeClass('navActive');
             $('#navJM01').removeClass('navActive');
             $('#navJM02').removeClass('navActive');
         } else if (scaraObject.id == 'scaraJM01'){
             $('#navJM01').addClass('navActive');
-            $('#navCobotUR10').removeClass('navActive');
-            $('#navICI01').removeClass('navActive');
+            $('#navScara01').removeClass('navActive');
             $('#navIJ02').removeClass('navActive');
             $('#navJM02').removeClass('navActive');
         } else if (scaraObject.id == 'scaraJM02'){
             $('#navJM02').addClass('navActive');
-            $('#navCobotUR10').removeClass('navActive');
-            $('#navICI01').removeClass('navActive');
+            $('#navScara01').removeClass('navActive');
             $('#navIJ02').removeClass('navActive');
             $('#navJM01').removeClass('navActive');
         }
@@ -263,7 +256,7 @@
 <script>
     /* ......................................
         ** This script manage all the tasks
-        on the 'Produccion' section** 
+        in Production section** 
     .........................................*/
 
     setInterval(() => {
@@ -492,8 +485,8 @@
                         stateMPR: stateMPR
                     }
 
-                    if (scaraObject.id == 'scaraIJ01') {
-                        localStorage.scaraIJ01 = JSON.stringify(operationMode);
+                    if (scaraObject.id == 'scara01') {
+                        localStorage.scara01 = JSON.stringify(operationMode);
                     } else if (scaraObject.id == 'scaraIJ02') {
                         localStorage.scaraIJ02 = JSON.stringify(operationMode);
                     } else if (scaraObject.id == 'scaraJM01') {
@@ -569,7 +562,7 @@
             'Monitoreo' section** 
         .........................................*/
     function monitoringFunction () {
-        if (scaraObject.id == 'scaraIJ01' || scaraObject.id == 'scaraIJ02') {
+        if (scaraObject.id == 'scara01' || scaraObject.id == 'scaraIJ02') {
             var _inputs = [
                 'I0_00',
                 'I0_01',
@@ -630,7 +623,7 @@
             'O2_01'
         ]
 
-        if (scaraObject.id == 'scaraIJ01' || scaraObject.id == 'scaraIJ02') {
+        if (scaraObject.id == 'scara01' || scaraObject.id == 'scaraIJ02') {
             for (let i = 0 ; i < 17; i++) {
                 inputSignals(_inputs[i]);
             }

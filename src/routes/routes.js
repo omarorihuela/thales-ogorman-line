@@ -50,17 +50,17 @@ that is going to be showed on the 'Production' Window -----> */
 
 /* Import the object structure of each robot -> */
     const COBOT = require('./../models/robots/cobot');
-    const SCARA_ICI = require('./../models/robots/scaraIJ')
-    const SCARA_JINGUAN = require('./../models/robots/scaraJM')
+    const SCARA_IJ = require('./../models/robots/scaraIJ')
+    const SCARA_JM = require('./../models/robots/scaraJM')
 /* <------------------------------------------- */
 
 /* Initialice the _cobotUR10 object and each one of the
     scara Robots -----------------------------> */
     var _cobotUR10 = new COBOT('cobotUR10');
-    var _scaraIJ01 = new SCARA_ICI('scaraIJ01');
-    var _scaraIJ02 = new SCARA_ICI('scaraIJ02');
-    var _scaraJM01 = new SCARA_JINGUAN('scaraJM01');
-    var _scaraJM02 = new SCARA_JINGUAN('scaraJM02');
+    var _scaraIJ01 = new SCARA_IJ('scara01');
+    var _scaraIJ02 = new SCARA_IJ('scaraIJ02');
+    var _scaraJM01 = new SCARA_JM('scaraJM01');
+    var _scaraJM02 = new SCARA_JM('scaraJM02');
 /* <------------------------------------------- */
 
 
@@ -208,8 +208,8 @@ async function main () {
         router.get('/cobotUR10', (req, res) => {
             res.render('cobotUR10', {dataCobot: JSON.stringify(_cobotUR10)});
         })
-        router.get('/scaraIJ01', (req, res) => {
-            res.render('scaraIJ01', {dataScara: JSON.stringify(_scaraIJ01)});
+        router.get('/scara01', (req, res) => {
+            res.render('scara01', {dataScara: JSON.stringify(_scaraIJ01)});
         })
         router.get('/scaraIJ02', (req, res) => {
             res.render('scaraIJ02', {dataScara: JSON.stringify(_scaraIJ02)});
@@ -245,7 +245,7 @@ async function main () {
                     
         //             clientConnectedCobotUR10 = true;
         //         }
-        //     } else if (id == 'scaraIJ01'){
+        //     } else if (id == 'scara01'){
         //         if (!clientConnectedScaraIJ01) {
     
         //             _scaraIJ01.control.process.stateICI = browserOperationMode.stateICI;
@@ -355,7 +355,7 @@ async function main () {
         //     let {id} = req.params;
         //     if ( id == 'cobotUR10'){
         //         clientConnectedCobotUR10 ? res.json(_cobotUR10) : res.send('ClientDisconnected');
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         clientConnectedScaraIJ01 ? res.json(_scaraIJ01) : res.send('ClientDisconnected');
         //     } else if ( id == 'scaraIJ02' ) {
         //         clientConnectedScaraIJ02 ? res.json(_scaraIJ02) : res.send('ClientDisconnected');
@@ -403,7 +403,7 @@ async function main () {
         
         //     if ( id == 'cobotUR10') {
         //         _cobotUR10.production.cobotBuffer.resetBuffer = data.resetBuffer;
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         _scaraIJ01.production.bufferScara.resetBuffer = data.resetBuffer;
         //     } else if ( id == 'scaraIJ02' ) {
         //         _scaraIJ02.production.bufferScara.resetBuffer = data.resetBuffer;
@@ -428,7 +428,7 @@ async function main () {
         //     if ( id == 'cobotUR10') {
         //         _cobotUR10.control.general.setPointCards = data.setPointCards;
         //         modbusPLC_cobotUR10('setPointCards', data.setPointCards);
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         _scaraIJ01.control.general.setPointCards = data.setPointCards;
         //         modbusPLC_IJ01('setPointCards', data.setPointCards);
         //     } else if ( id == 'scaraIJ02' ) {
@@ -465,7 +465,7 @@ async function main () {
         //     console.log('Id: ', id);
         //     console.log('Data from client => delayRobotUp: ', data);
 
-        //     if ( id == 'scaraIJ01' ) {
+        //     if ( id == 'scara01' ) {
         //         _scaraIJ01.control.general.delayRobotUp = data.delayRobotUp;
         //     } else if ( id == 'scaraIJ02' ) {
         //         _scaraIJ02.control.general.delayRobotUp = data.delayRobotUp;
@@ -490,7 +490,7 @@ async function main () {
         //         _cobotUR10.control.process.stateBuffer = data.stateBuffer;
         //         _cobotUR10.control.process.stateICI01 = data.stateICI01;
         //         _cobotUR10.control.process.stateICI02 = data.stateICI02;
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         _scaraIJ01.control.process.stateICI = data.stateICI;
         //         _scaraIJ01.control.process.stateBuffer = data.stateBuffer;
         //         _scaraIJ01.control.process.stateJinguan = data.stateJinguan;
@@ -516,7 +516,7 @@ async function main () {
         //     console.log('Id: ', id);
         //     console.log('Data from client => takeCards ', data);
 
-        //     if ( id == 'scaraIJ01' ) {
+        //     if ( id == 'scara01' ) {
         //         _scaraIJ01.control.process.takeCards = data.takeCards;
         //     } else if ( id == 'scaraIJ02' ) {
         //         _scaraIJ02.control.process.takeCards = data.takeCards;
@@ -540,7 +540,7 @@ async function main () {
         //     if ( id == 'cobotUR10') {
         //         _cobotUR10.control.process.openGripper = data.openGripper;
         //         modbusPLC_cobotUR10('openGripper', data.openGripper);
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         _scaraIJ01.control.process.openGripper = data.openGripper;
         //         modbusPLC_IJ01('openGripper', data.openGripper);
         //     } else if ( id == 'scaraIJ02' ) {
@@ -564,7 +564,7 @@ async function main () {
 
         //     if ( id == 'cobotUR10') {
         //         _cobotUR10.control.process.generalReset = data.generalReset;
-        //     } else if ( id == 'scaraIJ01' ) {
+        //     } else if ( id == 'scara01' ) {
         //         _scaraIJ01.control.process.generalReset = data.generalReset;
         //     } else if ( id == 'scaraIJ02' ) {
         //         _scaraIJ02.control.process.generalReset = data.generalReset;
