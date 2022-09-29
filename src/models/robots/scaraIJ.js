@@ -44,7 +44,6 @@ module.exports = function ScaraIJ (id) {
             openGripper: '0',      // Boolean -> (1 : True) || (0 : False)
             generalReset: '0'      // Boolean -> (1 : True) || (0 : False)
         }
-
     };
     this.monitoring = {
         inputs: {

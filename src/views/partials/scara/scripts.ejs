@@ -31,14 +31,14 @@
             }         
         }
 
-    }else if (scaraObject.id == 'scaraIJ02') {
-        $('#Robot').text('Scara-015');
-        $('.machineBefore').text('ICI-032');
-        $('.machineAfter').text('Jinguan-004');
+    } else if (scaraObject.id == 'scara02') {
+        $('#Robot').text('Scara 02');
+        $('.machineBefore').text('ICI 035');
+        $('.machineAfter').text('Jinguan 001');
 
-        if (localStorage.scaraIJ02 == undefined) {
+        if (localStorage.scara02 == undefined) {
             operationMode =  {
-                scaraIJ02: {
+                scara02: {
                     stateICI: '1',
                     stateBuffer: '1',
                     stateJinguan: '1'
@@ -46,19 +46,19 @@
             }
 
         } else {
-            console.log(localStorage.scaraIJ02);
+            console.log(localStorage.scara02);
             operationMode = {
-                scaraIJ02: JSON.parse(localStorage.scaraIJ02)
+                scara02: JSON.parse(localStorage.scara02)
             }         
         }
-    }else if (scaraObject.id == 'scaraJM01') {
-        $('#Robot').text('Scara-014');
-        $('.machineBefore').text('Jinguan-009');
-        $('.machineAfter').text('MPR-011');
+    } else if (scaraObject.id == 'scara03') {
+        $('#Robot').text('Scara 03');
+        $('.machineBefore').text('Jinguan 001');
+        $('.machineAfter').text('MPR 3KU');
 
-        if (localStorage.scaraJM01 == undefined) {
+        if (localStorage.scara03 == undefined) {
             operationMode =  {
-                scaraJM01: {
+                scara03: {
                     stateJinguan: '1',
                     stateBuffer: '1',
                     stateMPR: '1'
@@ -66,19 +66,19 @@
             }
 
         } else {
-            console.log(localStorage.scaraJM01);
+            console.log(localStorage.scara03);
             operationMode = {
-                scaraJM01: JSON.parse(localStorage.scaraJM01)
+                scara03: JSON.parse(localStorage.scara03)
             }         
         }
-    } else if (scaraObject.id == 'scaraJM02') {
-        $('#Robot').text('Scara-016');
-        $('.machineBefore').text('Jinguan-004');
-        $('.machineAfter').text('MPR-329');
+    } else if (scaraObject.id == 'scara04') {
+        $('#Robot').text('Scara 04');
+        $('.machineBefore').text('MPR 3KU');
+        $('.machineAfter').text('HDK');
 
-        if (localStorage.scaraJM02 == undefined) {
+        if (localStorage.scara04 == undefined) {
             operationMode =  {
-                scaraJM02: {
+                scara04: {
                     stateJinguan: '1',
                     stateBuffer: '1',
                     stateMPR: '1'
@@ -86,9 +86,9 @@
             }
 
         } else {
-            console.log(localStorage.scaraJM02);
+            console.log(localStorage.scara04);
             operationMode = {
-                scaraJM02: JSON.parse(localStorage.scaraJM02)
+                scara04: JSON.parse(localStorage.scara04)
             }         
         }
     }
@@ -102,13 +102,13 @@
 
             /* Initialice the operationMode´s switches ----------------> */
                 if (scaraObject.machineBefore == 'ICI') {
-                    operationMode[`${scaraObject.id}`]['stateICI'] == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
-                    operationMode[`${scaraObject.id}`]['stateBuffer'] == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
-                    operationMode[`${scaraObject.id}`]['stateJinguan'] == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`].stateICI == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[`${scaraObject.id}`].stateJinguan == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
                 } else if (scaraObject.machineBefore == 'Jinguan') {
-                    operationMode[`${scaraObject.id}`]['stateJinguan'] == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
-                    operationMode[`${scaraObject.id}`]['stateBuffer'] == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
-                    operationMode[`${scaraObject.id}`]['stateMPR'] == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`].stateJinguan == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[`${scaraObject.id}`].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[`${scaraObject.id}`].stateMPR == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
                 }
             /* <-------------------------------------------------------- */
         }
@@ -170,24 +170,24 @@
     /* Keep active each element of the nav bar ----------------> */
         if (scaraObject.id == 'scara01'){
             $('#navScara01').addClass('navActive');
-            $('#navIJ02').removeClass('navActive');
-            $('#navJM01').removeClass('navActive');
-            $('#navJM02').removeClass('navActive');
-        } else if (scaraObject.id == 'scaraIJ02'){
-            $('#navIJ02').addClass('navActive');
+            $('#navScara02').removeClass('navActive');
+            $('#navScara03').removeClass('navActive');
+            $('#navScara04').removeClass('navActive');
+        } else if (scaraObject.id == 'scara02'){
+            $('#navScara02').addClass('navActive');
             $('#navScara01').removeClass('navActive');
-            $('#navJM01').removeClass('navActive');
-            $('#navJM02').removeClass('navActive');
-        } else if (scaraObject.id == 'scaraJM01'){
-            $('#navJM01').addClass('navActive');
+            $('#navScara03').removeClass('navActive');
+            $('#navScara04').removeClass('navActive');
+        } else if (scaraObject.id == 'scara03'){
+            $('#navScara03').addClass('navActive');
             $('#navScara01').removeClass('navActive');
-            $('#navIJ02').removeClass('navActive');
-            $('#navJM02').removeClass('navActive');
-        } else if (scaraObject.id == 'scaraJM02'){
-            $('#navJM02').addClass('navActive');
+            $('#navScara02').removeClass('navActive');
+            $('#navScara04').removeClass('navActive');
+        } else if (scaraObject.id == 'scara04'){
+            $('#navScara04').addClass('navActive');
             $('#navScara01').removeClass('navActive');
-            $('#navIJ02').removeClass('navActive');
-            $('#navJM01').removeClass('navActive');
+            $('#navScara02').removeClass('navActive');
+            $('#navScara03').removeClass('navActive');
         }
     /* <-------------------------------------------------------- */
 
@@ -487,11 +487,11 @@
 
                     if (scaraObject.id == 'scara01') {
                         localStorage.scara01 = JSON.stringify(operationMode);
-                    } else if (scaraObject.id == 'scaraIJ02') {
+                    } else if (scaraObject.id == 'scara02') {
                         localStorage.scaraIJ02 = JSON.stringify(operationMode);
-                    } else if (scaraObject.id == 'scaraJM01') {
+                    } else if (scaraObject.id == 'scara03') {
                         localStorage.scaraJM01 = JSON.stringify(operationMode);
-                    } else if (scaraObject.id == 'scaraJM02') {
+                    } else if (scaraObject.id == 'scara04') {
                         localStorage.scaraJM02 = JSON.stringify(operationMode);
                     } 
                 }
@@ -562,7 +562,7 @@
             'Monitoreo' section** 
         .........................................*/
     function monitoringFunction () {
-        if (scaraObject.id == 'scara01' || scaraObject.id == 'scaraIJ02') {
+        if (scaraObject.id == 'scara01' || scaraObject.id == 'scara02') {
             var _inputs = [
                 'I0_00',
                 'I0_01',
@@ -582,7 +582,7 @@
                 'I0_15',
                 'I0_16'
             ];
-        } else if(scaraObject.id == 'scaraJM01' || scaraObject.id == 'scaraJM02'){
+        } else if(scaraObject.id == 'scara03' || scaraObject.id == 'scara04'){
             var _inputs = [
                 'I0_00',
                 'I0_01',
@@ -623,11 +623,11 @@
             'O2_01'
         ]
 
-        if (scaraObject.id == 'scara01' || scaraObject.id == 'scaraIJ02') {
+        if (scaraObject.id == 'scara01' || scaraObject.id == 'scara02') {
             for (let i = 0 ; i < 17; i++) {
                 inputSignals(_inputs[i]);
             }
-        } else if(scaraObject.id == 'scaraJM01' || scaraObject.id == 'scaraJM02'){
+        } else if(scaraObject.id == 'scara03' || scaraObject.id == 'scara04'){
             for (let i = 0 ; i < 20; i++) {
                 inputSignals(_inputs[i]);
             }

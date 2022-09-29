@@ -263,9 +263,9 @@
 
                 <!--  ::::: MONITORING SECTION ::::::: -->
                 <div class="tab-pane fade" id="nav-monitoring" role="tabpanel" aria-labelledby="nav-monitoring-tab">
-                    <% if(JSON.parse(dataScara).id == 'scara01' || JSON.parse(dataScara).id == 'scaraIJ02') { %>
+                    <% if(JSON.parse(dataScara).id == 'scara01' || JSON.parse(dataScara).id == 'scara02') { %>
                         <% include ./monitoringIJ.ejs %>
-                    <% } else if(JSON.parse(dataScara).id == 'scaraJM01' || JSON.parse(dataScara).id == 'scaraJM02') { %>
+                    <% } else if(JSON.parse(dataScara).id == 'scara03' || JSON.parse(dataScara).id == 'scara04') { %>
                         <% include ./monitoringJM.ejs %>
                     <% }%>
                 </div>
