@@ -4,7 +4,7 @@
         and initialize the state of each button and each field. **
 
     */
-    var scaraObject = <%- dataScara %>; // dataScara: variable sent with the render of the window.
+    let scaraObject = <%- dataScara %>; // dataScara: variable sent with the render of the window.
     console.log(scaraObject);
     
     let operationMode;
@@ -97,18 +97,18 @@
     $.ajax({
         url: `/clientConnected/${scaraObject.id}`,
         type: 'POST',
-        data: operationMode[`${scaraObject.id}`],
+        data: operationMode[scaraObject.id],
         success: function(){
 
             /* Initialice the operationMode´s switches ----------------> */
                 if (scaraObject.machineBefore == 'ICI') {
-                    operationMode[`${scaraObject.id}`].stateICI == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
-                    operationMode[`${scaraObject.id}`].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
-                    operationMode[`${scaraObject.id}`].stateJinguan == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                    operationMode[scaraObject.id].stateICI == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[scaraObject.id].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[scaraObject.id].stateJinguan == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
                 } else if (scaraObject.machineBefore == 'Jinguan') {
-                    operationMode[`${scaraObject.id}`].stateJinguan == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
-                    operationMode[`${scaraObject.id}`].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
-                    operationMode[`${scaraObject.id}`].stateMPR == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
+                    operationMode[scaraObject.id].stateJinguan == '1' ? $('#checkboxMachineBefore').prop('checked', true) : $('#checkboxMachineBefore').prop('checked', false); 
+                    operationMode[scaraObject.id].stateBuffer == '1' ? $('#checkboxBuffer').prop('checked', true) : $('#checkboxBuffer').prop('checked', false);
+                    operationMode[scaraObject.id].stateMPR == '1' ? $('#checkboxMachineAfter').prop('checked', true) : $('#checkboxMachineAfter').prop('checked', false); 
                 }
             /* <-------------------------------------------------------- */
         }
@@ -639,7 +639,7 @@
     }
 
     function inputSignals(id) {
-        if (scaraObject.monitoring.inputs[`${id}`] == true) {
+        if (scaraObject.monitoring.inputs[id] == true) {
             $(`#${id}`).removeClass('text-secondary');
             $(`#${id}`).addClass('text-success');
         } else {
@@ -648,7 +648,7 @@
         }
     }
     function outputSignals(id) {
-        if (scaraObject.monitoring.outputs[`${id}`] == true){
+        if (scaraObject.monitoring.outputs[id] == true){
             $(`#${id}`).removeClass('text-secondary');
             $(`#${id}`).addClass('text-success');
         } else {
