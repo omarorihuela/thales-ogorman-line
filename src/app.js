@@ -23,6 +23,6 @@ app.use('/', indexRoutes.router);
 
 // Starting the Web server
 server.listen(app.get('port'), async function() {
-    console.log(`Server on port ${app.get('port')}`);
+    console.log(`Server started on port ${app.get('port')}`);
     indexRoutes.socket_io(io);
 })
