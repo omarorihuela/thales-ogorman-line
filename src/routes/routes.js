@@ -8,7 +8,7 @@ const router = express.Router();
 
 // const db = require('./../modules/dbThales');
 // const errorLog = require('./../modules/errorLog.js');
-// var machinesData = require('./../modules/machinesData');
+// let machinesData = require('./../modules/machinesData');
 
 let clientConnectedScaraIJ01 = false;
 let clientConnectedScaraIJ02 = false;
@@ -34,13 +34,13 @@ let clientConnectedScaraJM02 = false;
 /* <------------------------------------------- */
 
 /* Socket io ---------------------------------> */
-    var io;
+    let io;
 /* <------------------------------------------- */
 
 /* _machineShiftCounter is an object with all the information
 that is going to be showed on the 'Production' Window -----> */
     const MachineShiftsCounters = require('../models/db/machineShiftsCounters');
-    var _machineShiftsCounters = new MachineShiftsCounters();
+    let _machineShiftsCounters = new MachineShiftsCounters();
 /* <------------------------------------------- */
 
 /* Import the object structure of each robot -> */
@@ -49,10 +49,10 @@ that is going to be showed on the 'Production' Window -----> */
 /* <------------------------------------------- */
 
 /* Initialice each one of the scara Robots ---> */
-    var _scaraIJ01 = new SCARA_IJ('scara01');
-    var _scaraIJ02 = new SCARA_IJ('scara02');
-    var _scaraJM01 = new SCARA_JM('scara03');
-    var _scaraJM02 = new SCARA_JM('scara04');
+    let _scaraIJ01 = new SCARA_IJ('scara01');
+    let _scaraIJ02 = new SCARA_IJ('scara02');
+    let _scaraJM01 = new SCARA_JM('scara03');
+    let _scaraJM02 = new SCARA_JM('scara04');
 /* <------------------------------------------- */
 
 
@@ -65,14 +65,14 @@ that is going to be showed on the 'Production' Window -----> */
 /* <------------------------------------------- */
 
 /* Open Scara Sockets ------------------------> */
-    var socketWritingICI01;
-    var socketReadingICI01;
-    var socketWritingICI02;
-    var socketReadingICI02;
-    var socketWritingJinguan01;
-    var socketReadingJinguan01;
-    var socketWritingJinguan02;
-    var socketReadingJinguan02;
+    let socketWritingICI01;
+    let socketReadingICI01;
+    let socketWritingICI02;
+    let socketReadingICI02;
+    let socketWritingJinguan01;
+    let socketReadingJinguan01;
+    let socketWritingJinguan02;
+    let socketReadingJinguan02;
 
     routesEvent.on('clientConnectedScaraIJ01', function() {
         socketWritingICI01.listen(3003, '192.168.40.100', function() {
