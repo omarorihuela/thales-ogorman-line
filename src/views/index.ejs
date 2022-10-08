@@ -1,170 +1,234 @@
 <%- include partials/header.ejs %>
 <style>
-    img {
-        max-height: 300px;
-        height: 200px;
-    }
-    p {
-        margin: 0;
-    }
-    .scara {
-        width: 150px;
-    }
-    .ici {
-        width: 200px;
-    }
-    .jinguan {
-        width: 200px;
-    }
-    .mpr {
-        width: 200px;
+    .machine {
+        max-height: 100%;
+        height: 100%;
+        width: 100%;
     }
 
 </style>
-<main class="mx-5 my-5">
-    <div class="row">
-        <div class="col d-flex flex-column justify-content-end align-items-center align-items-center">
-            <a href="/" class="">
-                <img src="img/png/SCARA.png" class="scara">
+<main class="py-3">
+    <div class="px-1 d-flex flex-row">
+        <div class="col-2 p-0">
+        </div>
+        <div class="col-2 p-0 d-flex justify-content-center">
+        </div>
+        <div class="col-8 d-flex flex-row p-0">
+            <div class="col-2 p-0 d-flex justify-content-center">
+                <div class="text-left">
+                    <div class="text-light">
+                        Tarjetas entrada: <span id="inputCards_ICI02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas salida: <span id="outputCards_ICI02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 p-0"></div>
+            <div class="col-3 p-0 d-flex justify-content-center">
+                <div>
+                    <div class="text-light">
+                        Tarjetas entrada: <span id="inputCards_Jinguan02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas salida: <span id="outputCards_Jinguan02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas rechazadas: <span id="rejectedCards_Jinguan02"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 p-0"></div>
+            <div class="col-3 p-0 d-flex justify-content-center">
+                <div>
+                    <div class="text-light">
+                        Tarjetas entrada: <span id="inputCards_MPR02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas salida: <span id="outputCards_MPR02"></span>
+                    </div>
+                    <div class="text-light">
+                        Tarjetas rechazadas: <span id="rejectedCards_MPR02"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-1 d-flex flex-row my-2" style="height: 30rem;">
+        <div class="col-2 px-3 d-flex flex-column justify-content-center">
+            <a href="/">
+                <img src="img/png/METRONIC.png" alt="Metronic" class="machine">
             </a>
-            <p class="text-light">SCARA</p>
-        </div>
-        <div class="col">
-            <div class="text-left">
-                <div class="text-light">
-                    Tarjetas entrada: <span id="inputCards_ICI02"></span>
+            <div class="pt-3">
+                <div class="text-light ">
+                    Tarjetas entrada: <span id="inputCardsA_Metronic"> </span>
+                </div>
+                <div class="text-light ">
+                    Tarjetas entrada: <span id="inputCardsB_Metronic"> </span>
                 </div>
                 <div class="text-light">
-                    Tarjetas salida: <span id="outputCards_ICI02"></span>
+                    Tarjetas salida: <span id="outputCards_Metronic"></span>
                 </div>
                 <div class="text-light">
-                    Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
+                    Tarjetas rechazadas: <span id="rejectedCards_Metronic"></span>
                 </div>
-            </div>
-            <div class="d-flex flex-column align-items-center">
-                <a href="/" class="">
-                    <img src="img/png/ICI.png" class="ici">
-                </a>
-                <p class="text-light">ICI 035</p>
+
             </div>
         </div>
-        <div class="col d-flex flex-column justify-content-end align-items-center">
-            <a href="/" class="">
-                <img src="img/png/SCARA.png" class="scara">
+        <div class="col-2 p-0">
+            <a href="cobotUR10">
+                <img src="img/png/CobotUR10.png" alt="" class="" style="height: 100%; max-width: 100%;">
             </a>
-            <p class="text-light">SCARA</p>
         </div>
-        <div class="col">
-            <div class="text-left">
-                <div class="text-light">
-                    Tarjetas entrada: <span id="inputCards_ICI02"></span>
+        <div class="col-8 d-flex flex-column">
+            <div class="d-flex flex-column mb-3" style="max-height: 50%;">
+                <div class="d-flex flex-row machine">
+                    <div class="col-2 px-3">
+                        <a href="/" class="">
+                            <img src="img/png/ICI.PNG" class="machine">
+                        </a>
+                    </div>
+                    <div class="col-2 machine">
+                        <div class="d-flex justify-content-center machine">
+                            <img src="img/png/SCARA.png" class="machine">
+                        </div>
+                    </div>
+                    <div class="col-3 px-3">
+                        <a href="/">
+                            <img src="img/png/Jinguan.png" class="machine">
+                        </a>
+                    </div>
+                    <div class="col-2 machine">
+                        <div class="d-flex justify-content-center machine">
+                            <img src="img/png/SCARA.png" class="machine">
+                        </div>
+                    </div>
+                    <div class="col-3 px-3">
+                        <a href="/">
+                            <img src="img/png/MPR.png" alt="" class="machine">
+                        </a>
+                    </div>
                 </div>
-                <div class="text-light">
-                    Tarjetas salida: <span id="outputCards_ICI02"></span>
-                </div>
-                <div class="text-light">
-                    Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
+                <div class="d-flex flex-row machine">
+                    <div class="col-2 text-center text-light">
+                        ICI-032
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-3 text-center text-light">
+                        JIN-004
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-3 text-center text-light">
+                        MPR-329
+                    </div>
+    
                 </div>
             </div>
-            <div class="d-flex flex-column align-items-center">
-                <a href="/" class="">
-                    <img src="img/png/Jinguan.png" class="jinguan">
-                </a>
-                <p class="text-light">Jinguan 001</p>
-            </div>
-        </div>
-        <div class="col d-flex flex-column justify-content-end align-items-center">
-            <a href="/" class="">
-                <img src="img/png/SCARA.png" class="scara">
-            </a>
-            <p class="text-light">SCARA</p>
-        </div>
-        <div class="col">
-            <div class="text-left">
-                <div class="text-light">
-                    Tarjetas entrada: <span id="inputCards_ICI02"></span>
+            <div class="d-flex flex-column mt-3" style="max-height: 50%;">
+                <div class="d-flex flex-row machine">
+                    <div class="col-2 text-center text-light">
+                        ICI-034
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-3 text-center text-light">
+                        JIN-009
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-3 text-center text-light">
+                        MPR-011
+                    </div>
                 </div>
-                <div class="text-light">
-                    Tarjetas salida: <span id="outputCards_ICI02"></span>
+                <div class="d-flex flex-row machine">
+                    <div class="col-2 px-3 machine">
+                        <a href="/" class="machine">
+                            <img src="img/png/ICI.PNG" class="machine">
+                        </a>
+                    </div>
+                    <div class="col-2 machine">
+                        <div class="d-flex justify-content-center machine">
+                            <img src="img/png/SCARA.png" class="machine">
+                        </div>
+                    </div>
+                    <div class="col-3 px-3">
+                        <a href="/">
+                            <img src="img/png/Jinguan.png" alt="" class="machine">
+                        </a>
+                    </div>
+                    <div class="col-2 machine">
+                        <div class="d-flex justify-content-center machine">
+                            <img src="img/png/SCARA.png" class="machine">
+                        </div>
+                    </div>
+                    <div class="col-3 px-3">
+                        <a href="/">
+                            <img src="img/png/MPR.png" alt="" class="machine">
+                        </a>
+                    </div>
                 </div>
-                <div class="text-light">
-                    Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
+                <div class="px-1 d-flex flex-row">
+                    <div class="col-2 p-0 d-flex justify-content-center">
+                        <div class="text-left">
+                            <div class="text-light">
+                                Tarjetas entrada: <span id="inputCards_ICI01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas salida: <span id="outputCards_ICI01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas rechazadas: <span id="rejectedCards_ICI01"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 p-0"></div>
+                    <div class="col-3 p-0 d-flex justify-content-center">
+                        <div>
+                            <div class="text-light">
+                                Tarjetas entrada: <span id="inputCards_Jinguan01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas salida: <span id="outputCards_Jinguan01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas rechazadas: <span id="rejectedCards_Jinguan01"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 p-0"></div>
+                    <div class="col-3 p-0 d-flex justify-content-center">
+                        <div>
+                            <div class="text-light">
+                                Tarjetas entrada: <span id="inputCards_MPR01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas salida: <span id="outputCards_MPR01"></span>
+                            </div>
+                            <div class="text-light">
+                                Tarjetas rechazadas: <span id="rejectedCards_MPR01"></span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="d-flex flex-column align-items-center">
-                <a href="/" class="">
-                    <img src="img/png/MPR.png" class="mpr">
-                </a>
-                <p class="text-light">MPR 3KU</p>
-            </div>
-        </div>
-        <div class="col d-flex flex-column justify-content-end align-items-center">
-            <a href="/" class="">
-                <img src="img/png/SCARA.png" class="scara">
-            </a>
-            <p class="text-light">SCARA</p>
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col">
-            <div class="d-flex flex-column align-items-start">
-                <div class="d-flex flex-column align-items-center">
-                    <p class="text-light">ICI 033</p>
-                    <a href="/" class="">
-                        <img src="img/png/ICI.png" class="ici">
-                    </a>
-                    <div class="d-flex flex-column align-items-start w-100">
-                        <div class="text-light">
-                            Tarjetas entrada: <span id="inputCards_ICI02"></span>
-                        </div>
-                        <div class="text-light">
-                            Tarjetas salida: <span id="outputCards_ICI02"></span>
-                        </div>
-                        <div class="text-light">
-                            Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="d-flex flex-column align-items-end">
-                <div class="d-flex flex-column align-items-center">
-                    <p class="text-light">HDK</p>
-                    <a href="/" class="">
-                        <img src="img/png/MPR.png" class="mpr">
-                    </a>
-                    <div class="d-flex flex-column align-items-start w-100">
-                        <div class="text-light">
-                            Tarjetas entrada: <span id="inputCards_ICI02"></span>
-                        </div>
-                        <div class="text-light">
-                            Tarjetas salida: <span id="outputCards_ICI02"></span>
-                        </div>
-                        <div class="text-light">
-                            Tarjetas rechazadas: <span id="rejectedCards_ICI02"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </main>
 
 <script>
     setInterval(() => {
         $.get('/index/getData', (data) => {
             console.log(data);
-            const { 
-                _Metronic, 
-                _ICI01, 
-                _Jinguan01, 
-                _MPR01, 
-                _ICI02, 
-                _Jinguan02, 
-                _MPR02
-            } = data;
+            let {_Metronic} = data;
+            let {_ICI01} = data;
+            let {_Jinguan01} = data;
+            let {_MPR01} = data;
+            let {_ICI02} = data;
+            let {_Jinguan02} = data;
+            let {_MPR02} = data;
 
             $('#inputCards_ICI02').text(_ICI02.lotCounter.inputA);
             $('#outputCards_ICI02').text(_ICI02.lotCounter.output);
